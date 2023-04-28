@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { render, screen } from '@testing-library/react'
 
 import Body from "./Body";
 import Tracks from "./Tracks";
@@ -20,12 +20,12 @@ const defaultProps: BodyProps = {
 
 describe("<Body />", () => {
   it("renders <Tracks />", () => {
-    const wrapper = shallow(<Body {...defaultProps} />);
+    const wrapper = render(<Body {...defaultProps} />)
     expect(wrapper.find(Tracks).exists()).toBe(true);
   });
 
   it("renders <Grid /> if grid prop exists", () => {
-    const wrapper = shallow(<Body {...defaultProps} />);
+    const wrapper = render(<Body {...defaultProps} />)
     expect(wrapper.find(Grid).exists()).toBe(true);
   });
 
@@ -34,7 +34,7 @@ describe("<Body />", () => {
       ...defaultProps,
       grid: undefined,
     };
-    const wrapper = shallow(<Body {...props} />);
+    const wrapper = render(<Body {...props} />)
     expect(wrapper.find(Grid).exists()).toBe(false);
   });
 });

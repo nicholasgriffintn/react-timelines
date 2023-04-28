@@ -46,162 +46,155 @@ interface State {
 }
 
 class Layout extends PureComponent<Props, State> {
-  timeline: React.RefObject<HTMLDivElement>;
+  timeline: React.RefObject<HTMLDivElement>
 
-  layout: React.RefObject<HTMLDivElement>;
+  layout: React.RefObject<HTMLDivElement>
 
-  sidebar: React.RefObject<HTMLDivElement>;
+  sidebar: React.RefObject<HTMLDivElement>
 
-  props: Props;
+  props: Props
 
-  state: State;
+  state: State
 
   constructor(props: Props) {
-    super(props);
+    super(props)
 
-    this.timeline = React.createRef();
-    this.layout = React.createRef();
-    this.sidebar = React.createRef();
+    this.timeline = React.createRef()
+    this.layout = React.createRef()
+    this.sidebar = React.createRef()
 
     this.state = {
       isSticky: false,
       headerHeight: 0,
       scrollLeft: 0,
-    };
+    }
   }
 
-  componentDidMount() {
-    const { enableSticky } = this.props;
+  componentDidrender() {
+    const { enableSticky } = this.props
 
     if (enableSticky) {
-      addListener("scroll", this.handleScrollY);
-      this.updateTimelineHeaderScroll();
-      this.updateTimelineBodyScroll();
+      addListener('scroll', this.handleScrollY)
+      this.updateTimelineHeaderScroll()
+      this.updateTimelineBodyScroll()
     }
 
-    addListener("resize", this.handleResize);
-    this.handleLayoutChange(() => this.scrollToNow());
+    addListener('resize', this.handleResize)
+    this.handleLayoutChange(() => this.scrollToNow())
   }
 
   componentDidUpdate(prevProps: Props, prevState: State) {
-    const { enableSticky, isOpen } = this.props;
-    const { isSticky, scrollLeft } = this.state;
+    const { enableSticky, isOpen } = this.props
+    const { isSticky, scrollLeft } = this.state
 
     if (enableSticky && isSticky) {
       if (!prevState.isSticky) {
-        this.updateTimelineHeaderScroll();
+        this.updateTimelineHeaderScroll()
       }
 
       if (scrollLeft !== prevState.scrollLeft) {
-        this.updateTimelineBodyScroll();
+        this.updateTimelineBodyScroll()
       }
     }
 
     if (isOpen !== prevProps.isOpen) {
-      this.handleLayoutChange();
+      this.handleLayoutChange()
     }
   }
 
-  componentWillUnmount() {
-    const { enableSticky } = this.props;
+  componentWillUnrender() {
+    const { enableSticky } = this.props
 
     if (enableSticky) {
-      removeListener("scroll", this.handleScrollY);
-      removeListener("resize", this.handleResize);
+      removeListener('scroll', this.handleScrollY)
+      removeListener('resize', this.handleResize)
     }
   }
 
   setHeaderHeight = (headerHeight: number) => {
-    this.setState({ headerHeight });
-  };
+    this.setState({ headerHeight })
+  }
 
   scrollToNow = () => {
-    const { time, scrollToNow, now, timelineViewportWidth } = this.props;
+    const { time, scrollToNow, now, timelineViewportWidth } = this.props
     if (!this.timeline.current || !now || !timelineViewportWidth) {
-      return;
+      return
     }
     if (scrollToNow) {
-      this.timeline.current.scrollLeft =
-        time.toX(now) - 0.5 * timelineViewportWidth;
+      this.timeline.current.scrollLeft = time.toX(now) - 0.5 * timelineViewportWidth
     }
-  };
+  }
 
   updateTimelineBodyScroll = () => {
-    const { scrollLeft } = this.state;
+    const { scrollLeft } = this.state
     if (!this.timeline.current) {
-      return;
+      return
     }
-    this.timeline.current.scrollLeft = scrollLeft;
-  };
+    this.timeline.current.scrollLeft = scrollLeft
+  }
 
   updateTimelineHeaderScroll = () => {
     if (!this.timeline.current) {
-      return;
+      return
     }
-    const { scrollLeft } = this.timeline.current;
-    this.setState({ scrollLeft });
-  };
+    const { scrollLeft } = this.timeline.current
+    this.setState({ scrollLeft })
+  }
 
   handleHeaderScrollY = (scrollLeft: number) => {
     raf(() => {
-      this.setState({ scrollLeft });
-    });
-  };
+      this.setState({ scrollLeft })
+    })
+  }
 
   handleScrollY = () => {
     raf(() => {
-      const { headerHeight } = this.state;
-      const markerHeight = 0;
+      const { headerHeight } = this.state
+      const markerHeight = 0
       if (!this.timeline.current) {
-        return;
+        return
       }
-      const { top, bottom } = this.timeline.current.getBoundingClientRect();
-      const isSticky = top <= -markerHeight && bottom >= headerHeight;
-      this.setState(() => ({ isSticky }));
-    });
-  };
+      const { top, bottom } = this.timeline.current.getBoundingClientRect()
+      const isSticky = top <= -markerHeight && bottom >= headerHeight
+      this.setState(() => ({ isSticky }))
+    })
+  }
 
   handleScrollX = () => {
-    raf(this.updateTimelineHeaderScroll);
-  };
+    raf(this.updateTimelineHeaderScroll)
+  }
 
   calculateSidebarWidth = () => {
     if (!this.sidebar.current || !this.layout.current) {
-      return;
+      return
     }
-    return (
-      this.sidebar.current.offsetWidth +
-      getNumericPropertyValue(this.layout.current, "margin-left")
-    );
-  };
+    return this.sidebar.current.offsetWidth + getNumericPropertyValue(this.layout.current, 'margin-left')
+  }
 
   calculateTimelineViewportWidth = () => {
     if (!this.timeline.current) {
-      return;
+      return
     }
-    return this.timeline.current.offsetWidth;
-  };
+    return this.timeline.current.offsetWidth
+  }
 
   handleLayoutChange = (cb = noop) => {
-    const { sidebarWidth, timelineViewportWidth, onLayoutChange } = this.props;
+    const { sidebarWidth, timelineViewportWidth, onLayoutChange } = this.props
 
-    const nextSidebarWidth = this.calculateSidebarWidth();
-    const nextTimelineViewportWidth = this.calculateTimelineViewportWidth();
-    if (
-      nextSidebarWidth !== sidebarWidth ||
-      nextTimelineViewportWidth !== timelineViewportWidth
-    ) {
+    const nextSidebarWidth = this.calculateSidebarWidth()
+    const nextTimelineViewportWidth = this.calculateTimelineViewportWidth()
+    if (nextSidebarWidth !== sidebarWidth || nextTimelineViewportWidth !== timelineViewportWidth) {
       onLayoutChange(
         {
           sidebarWidth: this.calculateSidebarWidth(),
           timelineViewportWidth: this.calculateTimelineViewportWidth(),
         },
         cb
-      );
+      )
     }
-  };
+  }
 
-  handleResize = () => this.handleLayoutChange();
+  handleResize = () => this.handleLayoutChange()
 
   render() {
     const {
@@ -215,14 +208,11 @@ class Layout extends PureComponent<Props, State> {
       timelineViewportWidth = 0,
       clickElement,
       clickTrackButton,
-    } = this.props;
+    } = this.props
 
-    const { isSticky, headerHeight, scrollLeft } = this.state;
+    const { isSticky, headerHeight, scrollLeft } = this.state
     return (
-      <div
-        className={`rt-layout ${isOpen ? "rt-is-open" : ""}`}
-        ref={this.layout}
-      >
+      <div className={`rt-layout ${isOpen ? 'rt-is-open' : ''}`} ref={this.layout}>
         <div className="rt-layout__side" ref={this.sidebar}>
           <Sidebar
             timebar={timebar}
@@ -233,11 +223,7 @@ class Layout extends PureComponent<Props, State> {
           />
         </div>
         <div className="rt-layout__main">
-          <div
-            className="rt-layout__timeline"
-            ref={this.timeline}
-            onScroll={isSticky ? this.handleScrollX : noop}
-          >
+          <div className="rt-layout__timeline" ref={this.timeline} onScroll={isSticky ? this.handleScrollX : noop}>
             <Timeline
               now={now}
               time={time}
@@ -256,7 +242,7 @@ class Layout extends PureComponent<Props, State> {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
