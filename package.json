@@ -49,6 +49,18 @@
   "files": [
     "lib"
   ],
+  "release": {
+    "branches": [
+      {
+        "name": "master"
+      },
+      {
+        "name": "next",
+        "channel": "next",
+        "prerelease": true
+      }
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/eslint-parser": "^7.21.3",
