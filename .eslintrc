@@ -1,10 +1,10 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "env": {
     "browser": true,
     "jest": true
   },
-  "extends": ["airbnb", "prettier", "prettier/react"],
+  "extends": ["react-app", "airbnb", "prettier"],
   "rules": {
     "semi": ["error", "never"],
     "react/require-default-props": "off",
