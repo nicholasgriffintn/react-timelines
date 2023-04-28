@@ -7,17 +7,15 @@ Original repo: [react-timelines (JSainsburyPLC)](https://github.com/JSainsburyPL
 ## Install
 
 ```sh
-# with npm
-npm install react-timelines
-
-# or with Yarn
-yarn add react-timelines
+npm install react-timelines-updated
 ```
+
+Feel free to replace `npm` with whatever package manager you are using.
 
 ## Use
 
 ```js
-import Timeline from 'react-timelines'
+import Timeline from 'react-timelines-updated'
 
 const MyWidget = () => <Timeline {...props} />
 
@@ -31,7 +29,7 @@ export default MyWidget
 Using Webpack with CSS loader, add the following:
 
 ```js
-import 'react-timelines/lib/css/style.css'
+import 'react-timelines-updated/lib/css/style.css'
 ```
 
 ### Using Sass (SCSS)
@@ -42,12 +40,12 @@ Using Sass you can configure the timeline with variables:
 $react-timelines-font-family: MaryAnn;
 $react-timelines-sidebar-width: 320px;
 
-@import '~/react-timelines/src/scss/style';
+@import '~/react-timelines-updated/src/scss/style';
 ```
 
 ### Without build tools
 
-Create a CSS file with the contents of `react-timelines/lib/css/style.css` and include it in `<head>`
+Create a CSS file with the contents of `react-timelines-updated/lib/css/style.css` and include it in `<head>`
 
 ## Development
 
