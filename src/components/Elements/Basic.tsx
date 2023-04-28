@@ -10,7 +10,7 @@ interface BuildDataAttributesSettings {
 }
 
 const buildDataAttributes = (attributes: BuildDataAttributesSettings = {}) => {
-  const value = {};
+  const value: {[key: string]: any} = {};
   Object.keys(attributes).forEach((name) => {
     value[`data-${name.toLowerCase()}`] = attributes[name];
   });

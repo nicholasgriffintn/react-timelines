@@ -11,6 +11,6 @@ COMMIT_NAME="${GITHUB_ACTOR}"
 git config --global user.email "${COMMIT_EMAIL}"
 git config --global user.name "${COMMIT_NAME}"
 
-npm install
-npm run build
-npm run deploy
+pnpm install
+pnpm run build
+pnpm run deploy

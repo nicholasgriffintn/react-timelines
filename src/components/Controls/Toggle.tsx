@@ -35,6 +35,7 @@ export default function Toggle(props: Props) {
       className="rt-controls__button rt-controls__button--toggle"
       onClick={toggleOpen}
       type="button"
+      aria-label={isOpen ? "Close" : "Open"}
     >
       <span className="rt-visually-hidden">{isOpen ? "Close" : "Open"}</span>
       {isOpen ? <CloseSvg /> : <OpenSvg />}
