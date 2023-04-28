@@ -10,14 +10,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "deploy": "gh-pages -d ./build"
+    "build": "react-scripts build"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/plugin-syntax-flow": "^7.21.4",
     "@babel/plugin-transform-react-jsx": "^7.21.0",
-    "gh-pages": "5.0.0",
     "typescript": "^5.0.4"
   },
   "eslintConfig": {
