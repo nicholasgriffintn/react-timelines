@@ -2,6 +2,7 @@
   "name": "react-timelines-updated",
   "version": "2.0.0-development",
   "description": "React Timelines: Updated",
+  "homepage": "https://nicholasgriffintn.github.io/react-timelines/",
   "main": "lib/src/index.js",
   "scripts": {
     "build:css": "node-sass src/scss/style.scss lib/css/style.css",
