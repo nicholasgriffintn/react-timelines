@@ -12,5 +12,6 @@ git config --global user.email "${COMMIT_EMAIL}"
 git config --global user.name "${COMMIT_NAME}"
 
 pnpm install
+npm audit signatures
 pnpm run build
 pnpm run deploy

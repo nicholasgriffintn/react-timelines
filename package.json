@@ -1,6 +1,6 @@
 {
   "name": "react-timelines-updated",
-  "version": "2.0.0",
+  "version": "2.0.0-development",
   "description": "React Timelines: Updated",
   "main": "lib/src/index.js",
   "scripts": {
@@ -21,7 +21,8 @@
     "test:build": "tsc --project tsconfig.json --noEmit",
     "watch:css": "node-sass -w src/scss/style.scss lib/css/style.css",
     "watch:js": "tsc --project tsconfig.build.json --watch",
-    "watch": "npm run watch:js & npm run watch:css"
+    "watch": "npm run watch:js & npm run watch:css",
+    "semantic-release": "npx semantic-release"
   },
   "keywords": [
     "timeline",
@@ -80,6 +81,7 @@
     "rimraf": "5.0.0",
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "semantic-release": "^21.0.1"
   }
 }
