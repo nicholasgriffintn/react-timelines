@@ -22,7 +22,7 @@
     "watch:css": "node-sass -w src/scss/style.scss lib/css/style.css",
     "watch:js": "tsc --project tsconfig.build.json --watch",
     "watch": "npm run watch:js & npm run watch:css",
-    "semantic-release": "npx semantic-release"
+    "semantic-release": "semantic-release"
   },
   "keywords": [
     "timeline",
