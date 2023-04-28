@@ -1,4 +1,4 @@
-import { TimeSettings } from "../types";
+import { TimeSettings } from "@src/types";
 
 interface CreateTimeParameters {
   end: Date;

@@ -5,11 +5,11 @@ import Header from './Header'
 import Body from './Body'
 import NowMarker from './Marker/NowMarker'
 import PointerMarker from './Marker/PointerMarker'
-import createTime from '../../utils/time'
+import createTime from '@src/utils/time'
 
-import { StickySettings, TimebarEntry } from '../../types'
+import { StickySettings, TimebarEntry } from '@src/types'
 
-jest.mock('../../utils/getMouseX')
+jest.mock('@src/utils/getMouseX')
 
 type TimelineProps = React.ComponentProps<typeof Timeline>
 

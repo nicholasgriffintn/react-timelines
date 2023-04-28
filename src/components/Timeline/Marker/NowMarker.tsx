@@ -1,8 +1,8 @@
-import createTime from "../../../utils/time";
+import createTime from "@src/utils/time";
 import PropTypes from "prop-types";
 
 import Marker from "./Marker";
-import { getDayMonth } from "../../../utils/formatDate";
+import { getDayMonth } from "@src/utils/formatDate";
 
 interface Props {
   time: ReturnType<typeof createTime>;

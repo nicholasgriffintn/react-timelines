@@ -4,7 +4,7 @@ import Track from './Track'
 import Tracks from '.'
 import Element from './Element'
 import { ComponentPropsWithoutRef } from 'react'
-import createTime from '../../../utils/time'
+import createTime from '@src/utils/time'
 
 const DEFAULT_TIME = createTime({
   start: new Date('2017-01-01'),

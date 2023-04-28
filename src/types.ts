@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactElement, ReactNode } from "react";
-import { ClickElementHandler } from "./components/Timeline/Tracks/Element";
+
+import { ClickElementHandler } from "@src/components/Timeline/Tracks/Element";
 
 export interface Cell {
   end: Date;

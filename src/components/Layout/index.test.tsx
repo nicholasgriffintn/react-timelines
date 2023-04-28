@@ -1,21 +1,20 @@
 import { render, screen } from '@testing-library/react'
 
 import Layout from '.'
-import Sidebar from '../Sidebar/Sidebar'
-import Timeline from '../Timeline'
-import createTime from '../../utils/time'
+import Sidebar from '@src/components/Sidebar/Sidebar'
+import Timeline from '@src/components/Timeline'
+import createTime from '@src/utils/time'
 
-import computedStyle from '../../utils/computedStyle'
-// import { addListener, removeListener } from "../../utils/events";
-import raf from '../../utils/raf'
+import computedStyle from '@src/utils/computedStyle'
+import raf from '@src/utils/raf'
 
 type LayoutProps = React.ComponentProps<typeof Layout>
 
 jest.mock('../Sidebar/Sidebar', () => () => null)
 jest.mock('../Timeline', () => () => null)
-jest.mock('../../utils/computedStyle')
-jest.mock('../../utils/events')
-jest.mock('../../utils/raf')
+jest.mock('@src/utils/computedStyle')
+jest.mock('@src/utils/events')
+jest.mock('@src/utils/raf')
 
 function createProps(baseValues: Partial<LayoutProps> = {}): LayoutProps {
   const fallbackTime = createTime({
@@ -79,66 +78,5 @@ describe('<Layout />', () => {
     const props = createProps({ isOpen: false })
     const wrapper = render(<Layout {...props} />)
     expect(wrapper.find('.rt-layout').prop('className')).not.toMatch('is-open')
-  })
-
-  describe('sticky header', () => {
-    /* @todo: fix type errors and re-enable this test */
-    it.todo(
-      'becomes sticky when the window is within the timeline'
-      // () => {
-      // const listeners = {};
-      // (addListener as jest.Mock).mockImplementation((evt, fun) => {
-      //   listeners[evt] = fun;
-      // });
-      // (removeListener as jest.Mock).mockImplementation(jest.fn());
-      // const props = createProps();
-      // const wrapper = render(<Layout {...props} />);
-      // expect(typeof listeners.scroll).toEqual("function");
-      // wrapper.instance().setHeaderHeight(50);
-      // wrapper.instance().timeline.current.getBoundingClientRect = () => ({
-      //   top: -50,
-      //   bottom: 100,
-      // });
-      // listeners.scroll();
-      // expect(wrapper.state()).toMatchObject({
-      //   isSticky: true,
-      // });
-      // wrapper.instance().timeline.current.getBoundingClientRect = () => ({
-      //   top: 10,
-      //   bottom: 100,
-      // });
-      // listeners.scroll();
-      // expect(wrapper.state()).toMatchObject({
-      //   isSticky: false,
-      // });
-      // wrapper.instance().timeline.current.getBoundingClientRect = () => ({
-      //   top: -60,
-      //   bottom: 20,
-      // });
-      // listeners.scroll();
-      // expect(wrapper.state()).toMatchObject({
-      //   isSticky: false,
-      // });
-      // wrapper.unrender();
-      // expect(removeListener).toHaveBeenCalled();
-      // }
-    )
-
-    it.todo(
-      'syncs the timeline scroll position when the header is scrolled and is sticky'
-      // () => {
-      //   const props = createProps();
-      //   const wrapper = render(<Layout {...props} />);
-      //   wrapper.setState({ isSticky: true });
-
-      // @todo: fix this type error and uncomment
-      // wrapper.find(Timeline).prop("sticky").handleHeaderScrollY("100");
-
-      // @todo: fix this type error and uncomment
-      // expect(wrapper.find(".rt-layout__timeline").instance().scrollLeft).toBe(
-      //   100
-      // );
-      // }
-    )
   })
 })

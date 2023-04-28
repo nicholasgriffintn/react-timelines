@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 
 import Timeline from '.'
-import Controls from './components/Controls'
-import Layout from './components/Layout'
+import Controls from '@src/components/Controls'
+import Layout from '@src/components/Layout'
 
 const defaultStart = new Date('2010-01-01')
 const defaultEnd = new Date('2030-01-01')

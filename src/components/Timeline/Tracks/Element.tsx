@@ -1,8 +1,8 @@
 import { CSSProperties, FunctionComponent, ReactNode } from "react";
-import { TimeSettings } from "../../../types";
+import { TimeSettings } from "@src/types";
 
-import BasicElement from "../../Elements/Basic";
-import { getMaxDate, getMinDate } from "../../../utils/date";
+import BasicElement from "@src/components/Elements/Basic";
+import { getMaxDate, getMinDate } from "@src/utils/date";
 interface Props {
   id?: string;
   time?: TimeSettings;

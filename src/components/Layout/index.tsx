@@ -1,13 +1,13 @@
 import React, { PureComponent } from "react";
 
-import Sidebar from "../Sidebar/Sidebar";
-import Timeline from "../Timeline";
-import { addListener, removeListener } from "../../utils/events";
-import raf from "../../utils/raf";
-import getNumericPropertyValue from "../../utils/getNumericPropertyValue";
-import { TimebarEntry, TimeSettings, Track } from "../../types";
-import { ClickTrackHandler } from "../Sidebar/TrackKeys/TrackKey";
-import { ClickElementHandler } from "../Timeline/Tracks/Element";
+import Sidebar from "@src/components/Sidebar/Sidebar";
+import Timeline from "@src/components/Timeline";
+import { addListener, removeListener } from "@src/utils/events";
+import raf from "@src/utils/raf";
+import getNumericPropertyValue from "@src/utils/getNumericPropertyValue";
+import { TimebarEntry, TimeSettings, Track } from "@src/types";
+import { ClickTrackHandler } from "@src/components/Sidebar/TrackKeys/TrackKey";
+import { ClickElementHandler } from "@src/components/Timeline/Tracks/Element";
 
 const noop = () => {};
 

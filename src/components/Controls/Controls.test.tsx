@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 
-import Controls from './Controls'
-import Toggle from './Toggle'
+import Controls from '@src/components/Controls'
+import Toggle from '@src/components/Controls/Toggle'
 
 const createProps = ({
   isOpen = undefined,

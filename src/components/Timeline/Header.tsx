@@ -2,7 +2,7 @@ import type { MouseEventHandler, RefObject } from "react";
 
 import { createRef, PureComponent } from "react";
 
-import { StickySettings, TimebarEntry, TimeSettings } from "../../types";
+import { StickySettings, TimebarEntry, TimeSettings } from "@src/types";
 
 import Timebar from "./Timebar/Timebar";
 

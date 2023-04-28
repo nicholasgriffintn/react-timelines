@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 
 import Grid from './Grid'
-import createTime from '../../../utils/time'
+import createTime from '@src/utils/time'
 
 const time = createTime({
   start: new Date('2017-01-01T00:00:00.000Z'),

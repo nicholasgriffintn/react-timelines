@@ -1,11 +1,12 @@
-import Toggle from "./Toggle";
-import ZoomIn from "./ZoomIn";
-import ZoomOut from "./ZoomOut";
+import { MouseEventHandler } from "react";
+
+import Toggle from "@src/components/Controls/Toggle";
+import ZoomIn from "@src/components/Controls/ZoomIn";
+import ZoomOut from "@src/components/Controls/ZoomOut";
 import setDefaultProperties, {
   DefaultProperties,
-} from "../../utils/setDefaultProperties";
-import noop from "../../utils/noop";
-import { MouseEventHandler } from "react";
+} from "@src/utils/setDefaultProperties";
+import noop from "@src/utils/noop";
 
 interface Props {
   isOpen?: boolean;

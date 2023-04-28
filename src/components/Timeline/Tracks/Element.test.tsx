@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import Element from './Element'
 import BasicElement from '../../Elements/Basic'
-import createTime from '../../../utils/time'
+import createTime from '@src/utils/time'
 
 describe('<Element />', () => {
   const defaultProps = {

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import PointerMarker from './PointerMarker'
 import Marker from './Marker'
-import createTime from '../../../utils/time'
+import createTime from '@src/utils/time'
 
 const time = createTime({
   start: new Date('2017-01-01'),

@@ -1,4 +1,4 @@
-import type { Cell, TimeSettings } from "../../../types";
+import type { Cell, TimeSettings } from "@src/types";
 
 interface Props {
   time: TimeSettings;

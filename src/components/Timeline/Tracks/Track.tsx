@@ -4,7 +4,7 @@ import {
   TimeSettings,
   Element as ElementInterface,
   Track as TrackInterface,
-} from "../../../types";
+} from "@src/types";
 import Element, { ClickElementHandler } from "./Element";
 
 interface Props {

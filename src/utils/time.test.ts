@@ -1,4 +1,4 @@
-import createTime from "./time";
+import createTime from "@src/utils/time";
 
 describe("createTime", () => {
   describe("timelineWidth", () => {

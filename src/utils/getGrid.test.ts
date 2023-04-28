@@ -1,4 +1,4 @@
-import { TimebarEntry } from "../types";
+import { TimebarEntry } from "@src/types";
 import getGrid from "./getGrid";
 
 describe("getGrid", () => {

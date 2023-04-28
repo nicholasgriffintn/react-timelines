@@ -1,4 +1,4 @@
-import { Track } from "../../../types";
+import { Track } from "@src/types";
 import TrackKey from "./TrackKey";
 
 interface Props {

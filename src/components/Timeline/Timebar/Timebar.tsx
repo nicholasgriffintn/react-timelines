@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { TimebarEntry, TimeSettings } from "../../../types";
+import { TimebarEntry, TimeSettings } from "@src/types";
 
 import Row from "./Row";
 

@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { TimeSettings, Track as TrackInterface } from "../../../types";
+import { TimeSettings, Track as TrackInterface } from "@src/types";
 import { ClickElementHandler } from "./Element";
 
 import TrackComponent from "./Track";

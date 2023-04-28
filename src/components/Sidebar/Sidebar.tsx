@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Body from "./TrackKeys/Body";
 import { CSSProperties, FunctionComponent } from "react";
-import { Track } from "../../types";
+import { Track } from "@src/types";
 import { ClickTrackHandler } from "./TrackKeys/TrackKey";
 
 type Timebar = {

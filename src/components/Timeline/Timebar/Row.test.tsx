@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import createTime from '../../../utils/time'
+import createTime from '@src/utils/time'
 
 import Row from './Row'
 import Cell from './Cell'

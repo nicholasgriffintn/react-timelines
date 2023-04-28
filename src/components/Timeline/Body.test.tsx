@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react'
 import Body from "./Body";
 import Tracks from "./Tracks";
 import Grid from "./Grid";
-import createTime from "../../utils/time";
+import createTime from "@src/utils/time";
 
 type BodyProps = React.ComponentProps<typeof Body>;
 

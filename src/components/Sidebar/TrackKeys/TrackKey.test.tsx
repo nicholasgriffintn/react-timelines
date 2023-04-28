@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import TrackKey from './TrackKey'
 import TrackKeys from '.'
-import { Track } from '../../../types'
+import { Track } from '@src/types'
 type TrackKeyProps = React.ComponentProps<typeof TrackKey>
 
 function getSideComponent(node: ShallowWrapper) {

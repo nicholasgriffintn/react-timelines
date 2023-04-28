@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import Toggle from './Toggle'
+import Toggle from '@src/components/Controls/Toggle'
 
 describe('<Toggle />', () => {
   it('displays "Close" when open', () => {

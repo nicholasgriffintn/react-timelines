@@ -1,9 +1,9 @@
 import { Component, MouseEvent } from "react";
 
-import { StickySettings, TimebarEntry, TimeSettings, Track } from "../../types";
+import { StickySettings, TimebarEntry, TimeSettings, Track } from "@src/types";
 
-import getMouseX from "../../utils/getMouseX";
-import getGrid from "../../utils/getGrid";
+import getMouseX from "@src/utils/getMouseX";
+import getGrid from "@src/utils/getGrid";
 
 import Header from "./Header";
 import Body from "./Body";

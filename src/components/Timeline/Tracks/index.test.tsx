@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import createTime from '../../../utils/time'
+import createTime from '@src/utils/time'
 
 import Tracks from '.'
 import Track from './Track'

@@ -1,7 +1,7 @@
 import { CSSProperties, FunctionComponent } from 'react'
 
 import Cell from './Cell'
-import { Cell as CellInterface, TimeSettings } from '../../../types'
+import { Cell as CellInterface, TimeSettings } from '@src/types'
 
 interface Props {
   time: TimeSettings
