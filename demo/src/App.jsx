@@ -5,9 +5,7 @@ import Timeline from "react-timelines-updated";
 import "react-timelines-updated/lib/css/style.css";
 
 import { START_YEAR, NUM_OF_YEARS, NUM_OF_TRACKS } from "./constants";
-
 import { buildTimebar, buildTrack } from "./builders";
-
 import { fill } from "./utils";
 
 const now = new Date("2021-01-01");
