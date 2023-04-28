@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.b6b3b12e.css",
-    "main.js": "/static/js/main.5870976e.js",
-    "index.html": "/index.html",
-    "main.b6b3b12e.css.map": "/static/css/main.b6b3b12e.css.map",
-    "main.5870976e.js.map": "/static/js/main.5870976e.js.map"
+    "main.css": "/react-timelines/static/css/main.b6b3b12e.css",
+    "main.js": "/react-timelines/static/js/main.5870976e.js",
+    "index.html": "/react-timelines/index.html",
+    "main.b6b3b12e.css.map": "/react-timelines/static/css/main.b6b3b12e.css.map",
+    "main.5870976e.js.map": "/react-timelines/static/js/main.5870976e.js.map"
   },
   "entrypoints": [
     "static/css/main.b6b3b12e.css",
