@@ -1,5 +1,7 @@
 # React Timelines
 
+Original repo: [react-timelines (JSainsburyPLC)](https://github.com/JSainsburyPLC/react-timelines).
+
 [**Demo**](https://jsainsburyplc.github.io/react-timelines/)
 
 ## Install
