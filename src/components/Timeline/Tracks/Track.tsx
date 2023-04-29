@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react'
 import Tracks from '.'
-import { TimeSettings, Element as ElementInterface, Track as TrackInterface } from '@src/types'
+import { TimeSettings, Element as ElementInterface, Track as TrackInterface } from '../../../types'
 import Element, { ClickElementHandler } from './Element'
 
 interface Props {

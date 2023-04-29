@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid'
 
 import 'react-tooltip/dist/react-tooltip.css'
 
-import { getDayMonth } from '@src/utils/formatDate'
-import createClasses from '@src/utils/classes'
+import { getDayMonth } from '../../utils/formatDate'
+import createClasses from '../../utils/classes'
 
 interface BuildDataAttributesSettings {
   [key: string]: string

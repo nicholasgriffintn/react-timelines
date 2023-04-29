@@ -1,8 +1,8 @@
 import { render, fireEvent, act } from '@testing-library/react'
 
 import type { ComponentProps } from 'react'
-import { StickySettings } from '@src/types'
-import createTime from '@src/utils/time'
+import { StickySettings } from '../../types'
+import createTime from '../../utils/time'
 
 import Header from './Header'
 

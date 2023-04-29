@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 
 import Cell from './Cell'
-import createTime from '@src/utils/time'
+import createTime from '../../../utils/time'
 
 describe('<Cell />', () => {
   const props = {

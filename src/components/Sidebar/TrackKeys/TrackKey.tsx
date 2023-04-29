@@ -1,9 +1,9 @@
 import { cloneElement } from 'react'
-import { Track } from '@src/types'
+import { Track } from '../../../types'
 
 import TrackKeys from './TrackKeys'
-import setDefaultProperties, { DefaultProperties } from '@src/utils/setDefaultProperties'
-import noop from '@src/utils/noop'
+import setDefaultProperties, { DefaultProperties } from '../../../utils/setDefaultProperties'
+import noop from '../../../utils/noop'
 
 export type ClickTrackHandler = (track: Track) => void
 export type ToggleOpenHandler = (track: Track) => void

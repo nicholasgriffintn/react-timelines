@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import Body from './Body'
-import createTime from '@src/utils/time'
+import createTime from '../../utils/time'
 
 type BodyProps = React.ComponentProps<typeof Body>
 

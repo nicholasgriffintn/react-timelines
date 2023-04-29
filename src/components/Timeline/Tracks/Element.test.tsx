@@ -1,7 +1,7 @@
 import { render, act, fireEvent } from '@testing-library/react'
 
 import Element from './Element'
-import createTime from '@src/utils/time'
+import createTime from '../../../utils/time'
 
 describe('<Element />', () => {
   const defaultProps = {

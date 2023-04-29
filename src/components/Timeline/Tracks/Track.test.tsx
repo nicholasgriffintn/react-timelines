@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 
 import Track from './Track'
 import { ComponentPropsWithoutRef } from 'react'
-import createTime from '@src/utils/time'
+import createTime from '../../../utils/time'
 
 const DEFAULT_TIME = createTime({
   start: new Date('2017-01-01'),

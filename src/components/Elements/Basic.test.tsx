@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import Basic from '@src/components/Elements/Basic'
+import Basic from '../../components/Elements/Basic'
 
 type BasicProps = React.ComponentProps<typeof Basic>
 

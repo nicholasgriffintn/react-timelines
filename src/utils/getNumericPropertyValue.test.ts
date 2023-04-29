@@ -1,5 +1,5 @@
-import getNumericPropertyValue from '@src/utils/getNumericPropertyValue'
-import computedStyle from '@src/utils/computedStyle'
+import getNumericPropertyValue from '../utils/getNumericPropertyValue'
+import computedStyle from '../utils/computedStyle'
 
 jest.mock('./computedStyle')
 

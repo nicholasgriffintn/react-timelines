@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 
 import TrackKey from './TrackKey'
-import { Track } from '@src/types'
+import { Track } from '../../../types'
 type TrackKeyProps = React.ComponentProps<typeof TrackKey>
 
 describe('<TrackKey />', () => {

@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react'
 
 import Tracks from './Tracks'
 import Grid from './Grid/Grid'
-import { Cell, TimeSettings, Track } from '@src/types'
+import { Cell, TimeSettings, Track } from '../../types'
 import { ClickElementHandler } from './Tracks/Element'
 
 interface Props {

@@ -1,6 +1,5 @@
-import createTime from '@src/utils/time'
-
-import { getDayMonth } from '@src/utils/formatDate'
+import createTime from '../../../utils/time'
+import { getDayMonth } from '../../../utils/formatDate'
 import Marker from './Marker'
 
 interface Props {

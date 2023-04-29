@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import createTime from '@src/utils/time'
+import createTime from '../../../utils/time'
 
 import Timebar from '.'
 

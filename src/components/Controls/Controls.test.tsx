@@ -1,6 +1,6 @@
 import { render, screen, act, fireEvent } from '@testing-library/react'
 
-import Controls from '@src/components/Controls'
+import Controls from '../../components/Controls'
 
 const createProps = ({
   isOpen = undefined,

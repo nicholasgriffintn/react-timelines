@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 
 import NowMarker from './NowMarker'
-import createTime from '@src/utils/time'
+import createTime from '../../../utils/time'
 
 const createProps = ({
   now = new Date(),

@@ -1,18 +1,18 @@
 import { render } from '@testing-library/react'
 
 import Layout from '.'
-import createTime from '@src/utils/time'
+import createTime from '../../utils/time'
 
-import computedStyle from '@src/utils/computedStyle'
-import raf from '@src/utils/raf'
+import computedStyle from '../../utils/computedStyle'
+import raf from '../../utils/raf'
 
 type LayoutProps = React.ComponentProps<typeof Layout>
 
-jest.mock('../Sidebar/Sidebar', () => () => null)
-jest.mock('../Timeline', () => () => null)
-jest.mock('@src/utils/computedStyle')
-jest.mock('@src/utils/events')
-jest.mock('@src/utils/raf')
+jest.mock('../../Sidebar/Sidebar', () => () => null)
+jest.mock('../../Timeline', () => () => null)
+jest.mock('../../utils/computedStyle')
+jest.mock('../../utils/events')
+jest.mock('../../utils/raf')
 
 function createProps(baseValues: Partial<LayoutProps> = {}): LayoutProps {
   const fallbackTime = createTime({

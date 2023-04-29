@@ -1,5 +1,5 @@
-import { Track } from '@src/types'
-import setDefaultProperties, { DefaultProperties } from '@src/utils/setDefaultProperties'
+import { Track } from '../../../types'
+import setDefaultProperties, { DefaultProperties } from '../../../utils/setDefaultProperties'
 import TrackKeys from './TrackKeys'
 
 interface Props {

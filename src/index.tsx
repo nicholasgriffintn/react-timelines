@@ -1,11 +1,11 @@
 import { Component, MouseEventHandler } from 'react'
 
-import Controls from '@src/components/Controls'
-import Layout, { LayoutChangeHandler } from '@src/components/Layout'
-import { ClickTrackHandler } from '@src/components/Sidebar/TrackKeys/TrackKey'
-import { ClickElementHandler } from '@src/components/Timeline/Tracks/Element'
-import { ScaleSettings, TimebarEntry, Track } from '@src/types'
-import createTime from '@src/utils/time'
+import Controls from './components/Controls'
+import Layout, { LayoutChangeHandler } from './components/Layout'
+import { ClickTrackHandler } from './components/Sidebar/TrackKeys/TrackKey'
+import { ClickElementHandler } from './components/Timeline/Tracks/Element'
+import { ScaleSettings, TimebarEntry, Track } from './types'
+import createTime from './utils/time'
 
 const UNKNOWN_WIDTH = -1
 

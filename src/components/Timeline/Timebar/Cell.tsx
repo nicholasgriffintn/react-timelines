@@ -1,4 +1,4 @@
-import createTime from '@src/utils/time'
+import createTime from '../../../utils/time'
 
 interface Props {
   end: Date

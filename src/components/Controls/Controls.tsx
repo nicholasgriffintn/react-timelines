@@ -1,10 +1,10 @@
 import { MouseEventHandler } from 'react'
 
-import Toggle from '@src/components/Controls/Toggle'
-import ZoomIn from '@src/components/Controls/ZoomIn'
-import ZoomOut from '@src/components/Controls/ZoomOut'
-import setDefaultProperties, { DefaultProperties } from '@src/utils/setDefaultProperties'
-import noop from '@src/utils/noop'
+import Toggle from '../../components/Controls/Toggle'
+import ZoomIn from '../../components/Controls/ZoomIn'
+import ZoomOut from '../../components/Controls/ZoomOut'
+import setDefaultProperties, { DefaultProperties } from '../../utils/setDefaultProperties'
+import noop from '../../utils/noop'
 
 interface Props {
   isOpen?: boolean

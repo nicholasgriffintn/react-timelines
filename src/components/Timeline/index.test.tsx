@@ -1,11 +1,11 @@
 import { render, act, fireEvent } from '@testing-library/react'
 
 import Timeline from '.'
-import createTime from '@src/utils/time'
+import createTime from '../../utils/time'
 
-import { StickySettings, TimebarEntry } from '@src/types'
+import { StickySettings, TimebarEntry } from '../../types'
 
-jest.mock('@src/utils/getMouseX')
+jest.mock('../../utils/getMouseX')
 
 type TimelineProps = React.ComponentProps<typeof Timeline>
 
