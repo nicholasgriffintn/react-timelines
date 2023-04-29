@@ -17,7 +17,7 @@ describe('<Toggle />', () => {
 
   it('calls "toggleOpen()" when clicked', () => {
     const toggleOpen = jest.fn()
-    const wrapper = render(<Toggle toggleOpen={toggleOpen} isOpen />)
+    render(<Toggle toggleOpen={toggleOpen} isOpen />)
 
     act(() => {
       fireEvent.click(screen.getByRole('button', { name: 'Close Controls' }))

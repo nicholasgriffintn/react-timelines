@@ -16,7 +16,7 @@ describe('<Cell />', () => {
   }
 
   it('renders the "title"', () => {
-    const wrapper = render(<Cell {...props} />)
+    render(<Cell {...props} />)
 
     expect(screen.getByText('test')).toBeInTheDocument()
   })

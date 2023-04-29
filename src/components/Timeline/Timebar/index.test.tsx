@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import createTime from '@src/utils/time'
 
 import Timebar from '.'
-import Row from './Row'
 
 describe('<Timebar />', () => {
   it('renders <Row /> components', () => {

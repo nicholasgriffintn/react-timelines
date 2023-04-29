@@ -4,10 +4,6 @@ import TrackKey from './TrackKey'
 import { Track } from '@src/types'
 type TrackKeyProps = React.ComponentProps<typeof TrackKey>
 
-function getSideComponent(node) {
-  return node.find('.side-component')
-}
-
 describe('<TrackKey />', () => {
   describe('side component', () => {
     const sideComponent = <span className="side-component">Component</span>
@@ -21,9 +17,8 @@ describe('<TrackKey />', () => {
         title: 'test',
       }
       const wrapper = render(<TrackKey track={track} />)
-      const component = getSideComponent(wrapper)
-      expect(component.exists()).toBe(true)
-      expect(component.text()).toEqual('Component')
+      const component = wrapper.container.getElementsByClassName('side-component')[0];
+      expect(component).toHaveTextContent('Component')
     })
   })
 

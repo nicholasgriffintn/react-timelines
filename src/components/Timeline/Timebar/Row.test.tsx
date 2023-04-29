@@ -1,9 +1,8 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import createTime from '@src/utils/time'
 
 import Row from './Row'
-import Cell from './Cell'
 
 describe('<Row />', () => {
   it('renders the <Cell /> components', () => {

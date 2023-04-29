@@ -14,7 +14,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-scripts: 5.0.1_djheze4yvvkrggdyslldce2k2y
-  react-timelines-updated: 2.0.0_react-dom@18.2.0
+  react-timelines-updated: 2.1.0_react-dom@18.2.0
 
 devDependencies:
   '@babel/core': 7.21.4
@@ -8179,8 +8179,8 @@ packages:
       - webpack-plugin-serve
     dev: false
 
-  /react-timelines-updated/2.0.0_react-dom@18.2.0:
-    resolution: {integrity: sha512-iE+h+gPjbjLLuo6UcztWOyPdKTbZmshT4Qt290ExuOgzMuncwarbfx6WbUQiiUr5DGYNfSGkoQ8eT4/0/Aa+Hg==}
+  /react-timelines-updated/2.1.0_react-dom@18.2.0:
+    resolution: {integrity: sha512-0XOQz0hSPaPQWF6UWV250FgRhwv7RFZxZ+J6Sgd4juZUnZt63K+t6P437dFEtMqGltsvG6ugufq43TsUgbBi8w==}
     dependencies:
       prop-types: 15.8.1
       react: 18.2.0

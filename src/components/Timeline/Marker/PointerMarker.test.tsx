@@ -1,7 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import PointerMarker from './PointerMarker'
-import Marker from './Marker'
 import createTime from '@src/utils/time'
 
 const time = createTime({

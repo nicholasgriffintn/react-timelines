@@ -10,6 +10,7 @@
     "build": "npm run clean && npm run build:js && npm run build:css",
     "clean": "rimraf lib coverage",
     "coverage": "jest --coverage --collectCoverageFrom='**/*.{js,jsx,ts,tsx}'",
+    "typecheck": "tsc --noEmit",
     "lint:js:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "lint:js": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:prettier:fix": "prettier --write \"{e2e,src}/**/*.{js,jsx,ts,tsx}\"",

@@ -1,7 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import Body from './Body'
-import TrackKeys from '.'
 type BodyProps = React.ComponentProps<typeof Body>
 
 describe('<Body />', () => {
