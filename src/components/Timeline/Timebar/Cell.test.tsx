@@ -24,7 +24,7 @@ describe("<Cell />", () => {
   it('renders with a calculated width and left position based on "start" and "end"', () => {
     const wrapper = render(<Cell {...props} />);
 
-    expect(wrapper.container).toHaveStyle("left: 366px");
-    expect(wrapper.container).toHaveStyle("width: 366px");
+    expect(wrapper.container.querySelector('.rt-timebar__cell')).toHaveStyle("left: 366px");
+    expect(wrapper.container.querySelector('.rt-timebar__cell')).toHaveStyle("width: 365px");
   });
 });

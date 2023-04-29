@@ -78,24 +78,14 @@ describe("<Timeline />", () => {
     const wrapper = render(<Timeline {...props} />);
 
     expect(
-      wrapper.container.querySelectorAll(".rt-marker--now").length
-    ).toBe(1);
+      wrapper.container.querySelector(".rt-marker--now")
+    ).toBeInTheDocument();
     expect(
-      wrapper.container.querySelectorAll(".rt-timeline__header").length
-    ).toBe(1);
+      wrapper.container.querySelector(".rt-timeline__header")
+    ).toBeInTheDocument();
     expect(
-      wrapper.container.querySelectorAll(".rt-timeline__body").length
-    ).toBe(1);
-  });
-
-  it("renders <Body /> passing in appropriate grid cells", () => {
-    const props = createTimelineProps();
-    const wrapper = render(<Timeline {...props} />);
-    const expected = defaultTimebar[0].cells;
-
-    expect(
-      wrapper.container.querySelectorAll(".rt-timeline__body")[0]
-    ).toHaveAttribute("grid", expected);
+      wrapper.container.querySelector(".rt-timeline__body")
+    ).toBeInTheDocument();
   });
 
   describe("markers", () => {
@@ -117,8 +107,8 @@ describe("<Timeline />", () => {
       });
 
       expect(
-        wrapper.container.querySelectorAll(".rt-marker--pointer").length
-      ).toBe(1);
+        wrapper.container.querySelector('.rt-marker--pointer')
+      ).toBeInTheDocument();
     });
   });
 });

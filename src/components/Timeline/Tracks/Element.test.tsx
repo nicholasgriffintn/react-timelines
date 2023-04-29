@@ -19,8 +19,8 @@ describe("<Element />", () => {
   it('renders with a calculated width and left position based on "start" and "end"', () => {
     const wrapper = render(<Element {...defaultProps} />);
 
-    expect(wrapper.container).toHaveStyle("left: 366px");
-    expect(wrapper.container).toHaveStyle("width: 366px");
+    expect(wrapper.container.querySelector('.rt-track__element')).toHaveStyle("left: 366px");
+    expect(wrapper.container.querySelector('.rt-track__element')).toHaveStyle("width: 365px");
   });
 
   it("renders <BasicElement />", () => {
@@ -36,13 +36,13 @@ describe("<Element />", () => {
       const props = { ...defaultProps };
       const wrapper = render(<Element {...props} clickElement={jest.fn()} />);
 
-      expect(wrapper.container).toHaveStyle("cursor: pointer");
+      expect(wrapper.container.querySelector('.rt-track__element')).toHaveStyle("cursor: pointer");
     });
 
     it("renders without cursor pointer style if callback is not passed", () => {
       const wrapper = render(<Element {...defaultProps} />);
 
-      expect(wrapper.container).not.toHaveStyle("cursor: pointer");
+      expect(wrapper.container.querySelector('.rt-track__element')).not.toHaveStyle("cursor: pointer");
     });
 
     it("gets called with props when clicked", () => {

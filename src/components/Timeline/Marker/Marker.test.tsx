@@ -22,7 +22,7 @@ describe("<Marker />", () => {
     const props = createProps({ modifier });
     const wrapper = render(<Marker {...props} />);
 
-    expect(wrapper.container).toHaveClass(modifier);
+    expect(wrapper.container.querySelector('.rt-marker')).toHaveClass(`rt-marker rt-marker--${modifier}`);
   });
 
   it('is visible if "visible" is truthy', () => {
@@ -30,7 +30,7 @@ describe("<Marker />", () => {
     const props = createProps({ visible });
     const wrapper = render(<Marker {...props} />);
 
-    expect(wrapper.container).toHaveClass("is-visible");
+    expect(wrapper.container.querySelector('.rt-marker')).toHaveClass("rt-marker rt-marker-- rt-is-visible");
   });
 
   it('is invisible if "visible" is falsy', () => {
@@ -38,7 +38,7 @@ describe("<Marker />", () => {
     const props = createProps({ visible });
     const wrapper = render(<Marker {...props} />);
 
-    expect(wrapper.container).not.toHaveClass("is-visible");
+    expect(wrapper.container.querySelector('.rt-marker')).not.toHaveClass("rt-marker rt-marker-- rt-is-visible");
   });
 
   it('is highlighted if "highlighted" is truthy', () => {
@@ -46,7 +46,7 @@ describe("<Marker />", () => {
     const props = createProps({ highlighted });
     const wrapper = render(<Marker {...props} />);
 
-    expect(wrapper.container).toHaveClass("is-highlighted");
+    expect(wrapper.container.querySelector('.rt-marker')).toHaveClass("rt-marker rt-marker-- rt-is-highlighted");
   });
 
   it('is not highlighted if "highlighted" is falsy', () => {
@@ -54,7 +54,7 @@ describe("<Marker />", () => {
     const props = createProps({ highlighted });
     const wrapper = render(<Marker {...props} />);
 
-    expect(wrapper.container).not.toHaveClass("is-highlighted");
+    expect(wrapper.container.querySelector('.rt-marker')).not.toHaveClass("rt-marker rt-marker-- rt-is-highlighted");
   });
 
   it("follows the horizontal mouse position", () => {
@@ -62,6 +62,6 @@ describe("<Marker />", () => {
     const props = createProps({ x });
     const wrapper = render(<Marker {...props} />);
 
-    expect(wrapper.container).toHaveStyle("left: 100px");
+    expect(wrapper.container.querySelector('.rt-marker')).toHaveStyle("left: 100px");
   });
 });

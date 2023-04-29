@@ -2,14 +2,11 @@ import { render } from "@testing-library/react";
 
 import Layout from ".";
 import createTime from "../../utils/time";
-
 import computedStyle from "../../utils/computedStyle";
 import raf from "../../utils/raf";
 
 type LayoutProps = React.ComponentProps<typeof Layout>;
 
-jest.mock("../Sidebar/Sidebar", () => () => null);
-jest.mock("../Timeline", () => () => null);
 jest.mock("../../utils/computedStyle");
 jest.mock("../../utils/events");
 jest.mock("../../utils/raf");
@@ -65,7 +62,7 @@ describe("<Layout />", () => {
  
     expect(wrapper.container.querySelectorAll(".rt-sidebar").length).toBe(
       1
-    );
+    ); 
     expect(wrapper.container.querySelectorAll(".rt-timeline").length).toBe(
       1
     );

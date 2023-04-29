@@ -115,8 +115,8 @@ describe("<Header />", () => {
       const wrapper = render(<Header {...props} />);
 
       expect(
-        wrapper.container.querySelectorAll(".rt-timeline__header")
-      ).toHaveClass("is-sticky");
+        wrapper.container.querySelector(".rt-timeline__header")
+      ).toHaveClass("rt-timeline__header rt-is-sticky");
     });
 
     it("makes the header static if isSticky is false", () => {
@@ -125,7 +125,7 @@ describe("<Header />", () => {
       const wrapper = render(<Header {...props} />);
 
       expect(
-        wrapper.container.querySelectorAll(".rt-timeline__header")
+        wrapper.container.querySelector(".rt-timeline__header")
       ).not.toHaveClass("is-sticky");
     });
 

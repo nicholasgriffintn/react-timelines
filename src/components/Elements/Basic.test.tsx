@@ -43,7 +43,7 @@ describe("<Basic />", () => {
       };
       render(<Basic {...props} />);
 
-      expect(screen.getByText("Test tooltip")).toHaveStyle(
+      expect(screen.getByText("Test Tooltip")).toHaveStyle(
         "background-color: orange"
       );
     });

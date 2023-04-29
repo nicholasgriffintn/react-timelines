@@ -18,10 +18,10 @@ describe("<Sidebar />", () => {
     const wrapper = render(<Sidebar {...props} />);
 
     expect(
-      wrapper.container.querySelectorAll(".rt-sidebar__header")[0]
+      wrapper.container.querySelector(".rt-sidebar__header")
     ).toBeInTheDocument();
     expect(
-      wrapper.container.querySelectorAll(".rt-sidebar__body")[0]
+      wrapper.container.querySelector(".rt-sidebar__body")
     ).toBeInTheDocument();
   });
 });

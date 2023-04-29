@@ -13,7 +13,7 @@ describe("<Timebar />", () => {
       }),
       rows: [
         { id: "1", cells: [], style: {}, title: "Title 1" },
-        { id: "1", cells: [], style: {}, title: "Title 1" },
+        { id: "2", cells: [], style: {}, title: "Title 2" },
       ],
     };
     const wrapper = render(<Timebar {...props} />);

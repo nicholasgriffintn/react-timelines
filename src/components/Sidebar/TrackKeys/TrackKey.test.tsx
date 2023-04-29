@@ -45,7 +45,7 @@ describe("<TrackKey />", () => {
 
       expect(
         wrapper.container.querySelectorAll(".rt-track-key").length
-      ).oBe(1);
+      ).toBe(1);
     });
 
     it('does not render when "isOpen" is falsy', () => {
@@ -68,8 +68,8 @@ describe("<TrackKey />", () => {
       const wrapper = render(<TrackKey {...props} />);
 
       expect(
-        wrapper.container.querySelectorAll(".rt-track-key").length
-      ).oBe(0);
+        wrapper.container.querySelector(".rt-track-key")
+      ).not.toBeInTheDocument();
     });
 
     it('does not render when "tracks" is falsy', () => {
@@ -86,8 +86,8 @@ describe("<TrackKey />", () => {
       const wrapper = render(<TrackKey {...props} />);
 
       expect(
-        wrapper.container.querySelectorAll(".rt-track-key").length
-      ).oBe(0);
+        wrapper.container.querySelector(".rt-track-key")
+      ).not.toBeInTheDocument();
     });
 
     it('does not render when "tracks" is an empty array', () => {
@@ -104,8 +104,8 @@ describe("<TrackKey />", () => {
       const wrapper = render(<TrackKey {...props} />);
 
       expect(
-        wrapper.container.querySelectorAll(".rt-track-key").length
-      ).oBe(0);
+        wrapper.container.querySelector(".rt-track-key")
+      ).not.toBeInTheDocument();
     });
   });
 });
