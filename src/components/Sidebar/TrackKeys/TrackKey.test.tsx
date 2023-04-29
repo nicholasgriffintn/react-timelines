@@ -17,7 +17,7 @@ describe('<TrackKey />', () => {
         title: 'test',
       }
       const wrapper = render(<TrackKey track={track} />)
-      const component = wrapper.container.getElementsByClassName('side-component')[0];
+      const component = wrapper.container.getElementsByClassName('side-component')[0]
       expect(component).toHaveTextContent('Component')
     })
   })
