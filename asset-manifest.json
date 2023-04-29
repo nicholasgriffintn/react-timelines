@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-timelines/static/css/main.b6b3b12e.css",
-    "main.js": "/react-timelines/static/js/main.5870976e.js",
+    "main.js": "/react-timelines/static/js/main.81d2a4ce.js",
     "index.html": "/react-timelines/index.html",
     "main.b6b3b12e.css.map": "/react-timelines/static/css/main.b6b3b12e.css.map",
-    "main.5870976e.js.map": "/react-timelines/static/js/main.5870976e.js.map"
+    "main.81d2a4ce.js.map": "/react-timelines/static/js/main.81d2a4ce.js.map"
   },
   "entrypoints": [
     "static/css/main.b6b3b12e.css",
-    "static/js/main.5870976e.js"
+    "static/js/main.81d2a4ce.js"
   ]
 }
