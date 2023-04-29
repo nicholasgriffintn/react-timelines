@@ -1,4 +1,4 @@
-export const START_YEAR = 2020;
+export const START_YEAR = new Date().getFullYear() - 1;
 export const NUM_OF_YEARS = 3;
 export const MONTH_NAMES = [
   "Jan",

@@ -8,7 +8,7 @@ import { START_YEAR, NUM_OF_YEARS, NUM_OF_TRACKS } from "./constants";
 import { buildTimebar, buildTrack } from "./builders";
 import { fill } from "./utils";
 
-const now = new Date("2021-01-01");
+const now = new Date();
 
 const timebar = buildTimebar();
 
