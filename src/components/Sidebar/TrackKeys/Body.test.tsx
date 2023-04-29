@@ -18,7 +18,7 @@ describe("<Body />", () => {
     const wrapper = render(<Body {...props} />);
 
     expect(
-      wrapper.container.getElementsByClassName("rt-sidebar__body")[0]
+      wrapper.container.querySelectorAll(".rt-sidebar__body")[0]
     ).toBeInTheDocument();
   });
 });

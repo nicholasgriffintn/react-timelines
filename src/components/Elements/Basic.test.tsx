@@ -61,10 +61,10 @@ describe("<Basic />", () => {
       const wrapper = render(<Basic {...props} />);
 
       expect(
-        wrapper.container.getElementsByClassName("rt-element")[0]
+        wrapper.container.querySelectorAll(".rt-element")[0]
       ).toHaveClass("foo");
       expect(
-        wrapper.container.getElementsByClassName("rt-element")[0]
+        wrapper.container.querySelectorAll(".rt-element")[0]
       ).toHaveClass("bar");
     });
   });

@@ -23,7 +23,7 @@ describe("<TrackKeys />", () => {
     };
     const wrapper = render(<TrackKeys {...props} />);
 
-    expect(wrapper.container.getElementsByClassName("rt-track-key").length).oBe(
+    expect(wrapper.container.querySelectorAll(".rt-track-key").length).toBe(
       2
     );
   });

@@ -8,8 +8,8 @@ import raf from "../../utils/raf";
 
 type LayoutProps = React.ComponentProps<typeof Layout>;
 
-jest.mock("../../Sidebar/Sidebar", () => () => null);
-jest.mock("../../Timeline", () => () => null);
+jest.mock("../Sidebar/Sidebar", () => () => null);
+jest.mock("../Timeline", () => () => null);
 jest.mock("../../utils/computedStyle");
 jest.mock("../../utils/events");
 jest.mock("../../utils/raf");
@@ -62,11 +62,11 @@ describe("<Layout />", () => {
   it("renders <Sidebar /> and <Timeline />", () => {
     const props = createProps();
     const wrapper = render(<Layout {...props} />);
-
-    expect(wrapper.container.getElementsByClassName("rt-sidebar").length).toBe(
+ 
+    expect(wrapper.container.querySelectorAll(".rt-sidebar").length).toBe(
       1
     );
-    expect(wrapper.container.getElementsByClassName("rt-timeline").length).toBe(
+    expect(wrapper.container.querySelectorAll(".rt-timeline").length).toBe(
       1
     );
   });
@@ -76,8 +76,8 @@ describe("<Layout />", () => {
     const wrapper = render(<Layout {...props} />);
 
     expect(
-      wrapper.container.getElementsByClassName("rt-layout")[0]
-    ).toHaveClass("is-open");
+      wrapper.container.querySelectorAll(".rt-layout")[0]
+    ).toHaveClass("rt-layout rt-is-open");
   });
 
   it("renders <Sidebar /> in a closed state", () => {
@@ -85,7 +85,7 @@ describe("<Layout />", () => {
     const wrapper = render(<Layout {...props} />);
 
     expect(
-      wrapper.container.getElementsByClassName("rt-layout")[0]
-    ).not.toHaveClass("is-open");
+      wrapper.container.querySelectorAll(".rt-layout")[0]
+    ).not.toHaveClass("rt-layout is-open");
   });
 });

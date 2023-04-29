@@ -59,10 +59,10 @@ describe("<Header />", () => {
     const wrapper = render(<Header {...props} />);
 
     expect(
-      wrapper.container.getElementsByClassName("rt-sidebar__header")[0]
+      wrapper.container.querySelectorAll(".rt-sidebar__header")[0]
     ).toHaveClass("rt-is-sticky");
     expect(
-      wrapper.container.getElementsByClassName("rt-sidebar__header")[0]
+      wrapper.container.querySelectorAll(".rt-sidebar__header")[0]
     ).toHaveStyle("width: 200");
   });
 
@@ -76,10 +76,10 @@ describe("<Header />", () => {
     const wrapper = render(<Header {...props} />);
 
     expect(
-      wrapper.container.getElementsByClassName("rt-sidebar__header")[0]
+      wrapper.container.querySelectorAll(".rt-sidebar__header")[0]
     ).not.toHaveClass("rt-is-sticky");
     expect(
-      wrapper.container.getElementsByClassName("rt-sidebar__header")[0]
+      wrapper.container.querySelectorAll(".rt-sidebar__header")[0]
     ).not.toHaveStyle("width: 200");
   });
 });

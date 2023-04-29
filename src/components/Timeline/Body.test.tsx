@@ -20,7 +20,7 @@ describe("<Body />", () => {
   it("renders <Tracks />", () => {
     const wrapper = render(<Body {...defaultProps} />);
 
-    expect(wrapper.container.getElementsByClassName("rt-tracks").length).toBe(
+    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(
       1
     );
   });
@@ -28,7 +28,7 @@ describe("<Body />", () => {
   it("renders <Grid /> if grid prop exists", () => {
     const wrapper = render(<Body {...defaultProps} />);
 
-    expect(wrapper.container.getElementsByClassName("rt-grid").length).toBe(1);
+    expect(wrapper.container.querySelectorAll(".rt-grid").length).toBe(1);
   });
 
   it("does not render <Grid /> if grid prop does not exist", () => {
@@ -38,6 +38,6 @@ describe("<Body />", () => {
     };
     const wrapper = render(<Body {...props} />);
 
-    expect(wrapper.container.getElementsByClassName("rt-grid").length).toBe(0);
+    expect(wrapper.container.querySelectorAll(".rt-grid").length).toBe(0);
   });
 });

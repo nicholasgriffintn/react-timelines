@@ -27,7 +27,7 @@ describe("<Controls />", () => {
       render(<Controls {...props} />);
 
       expect(
-        screen.getByRole("button", { name: "Close Controls" })
+        screen.getByRole("button", { name: "Open Controls" })
       ).toBeInTheDocument();
     });
 
@@ -36,10 +36,10 @@ describe("<Controls />", () => {
       render(<Controls {...props} />);
 
       expect(
-        screen.getByRole("button", { name: "Close Controls" })
+        screen.queryByRole("button", { name: "Close Controls" })
       ).not.toBeInTheDocument();
       expect(
-        screen.getByRole("button", { name: "Open Controls" })
+        screen.queryByRole("button", { name: "Open Controls" })
       ).not.toBeInTheDocument();
     });
   });
@@ -50,7 +50,7 @@ describe("<Controls />", () => {
       render(<Controls {...props} />);
 
       expect(
-        screen.getByRole("button", { name: "Zoom In" })
+        screen.queryByRole("button", { name: "Zoom In" })
       ).not.toBeInTheDocument();
     });
 
@@ -96,7 +96,7 @@ describe("<Controls />", () => {
       render(<Controls {...props} />);
 
       expect(
-        screen.getByRole("button", { name: "Zoom Out" })
+        screen.queryByRole("button", { name: "Zoom Out" })
       ).not.toBeInTheDocument();
     });
 

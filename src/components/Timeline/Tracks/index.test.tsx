@@ -18,6 +18,6 @@ describe("<Tracks />", () => {
     };
     const wrapper = render(<Tracks {...props} />);
 
-    expect(wrapper.container.getElementsByClassName("tr-track").length).toBe(2);
+    expect(wrapper.container.querySelectorAll(".tr-track").length).toBe(2);
   });
 });

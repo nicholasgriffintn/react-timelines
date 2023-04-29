@@ -31,7 +31,7 @@ describe("<Row />", () => {
     const wrapper = render(<Row {...props} />);
 
     expect(
-      wrapper.container.getElementsByClassName("rt-timebar__cell").length
+      wrapper.container.querySelectorAll(".rt-timebar__cell").length
     ).toBe(2);
   });
 });

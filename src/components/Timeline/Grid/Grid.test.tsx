@@ -32,12 +32,10 @@ const grid = [
 
 describe("<Grid />", () => {
   it("renders grid cells, the styling of each repesenting the start and end dates in the grid prop", () => {
-    const getItemStyle = (wrapper, i: number) =>
-      wrapper.find(".rt-grid__cell").get(i).props.style;
-
     const wrapper = render(<Grid time={time} grid={grid} />);
-    expect(getItemStyle(wrapper, 0)).toEqual({ left: "0px", width: "50px" });
-    expect(getItemStyle(wrapper, 1)).toEqual({ left: "50px", width: "50px" });
-    expect(getItemStyle(wrapper, 2)).toEqual({ left: "100px", width: "50px" });
+
+    expect(wrapper.container.querySelectorAll(".rt-grid__cell")[0]).toHaveStyle({ left: "0px", width: "50px" });
+    expect(wrapper.container.querySelectorAll(".rt-grid__cell")[1]).toHaveStyle({ left: "50px", width: "50px" });
+    expect(wrapper.container.querySelectorAll(".rt-grid__cell")[2]).toHaveStyle({ left: "100px", width: "50px" });
   });
 });

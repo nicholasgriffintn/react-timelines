@@ -26,7 +26,7 @@ describe("<NowMarker />", () => {
     const wrapper = render(<NowMarker {...props} />);
 
     expect(
-      wrapper.container.getElementsByClassName("rt-marker")[0]
-    ).toHaveAttribute("x", 366);
+      wrapper.container.querySelectorAll(".rt-marker")[0]
+    ).toHaveStyle("left: 366px");
   });
 });

@@ -48,7 +48,7 @@ describe("<Timeline />", () => {
       const wrapper = render(<Timeline {...props} />);
 
       expect(
-        wrapper.container.getElementsByClassName("rt-controls").length
+        wrapper.container.querySelectorAll(".rt-controls").length
       ).toBe(1);
     });
 
@@ -56,7 +56,7 @@ describe("<Timeline />", () => {
       const props = createProps();
       const wrapper = render(<Timeline {...props} />);
 
-      expect(wrapper.container.getElementsByClassName("rt-layout").length).toBe(
+      expect(wrapper.container.querySelectorAll(".rt-layout").length).toBe(
         1
       );
     });
@@ -66,7 +66,7 @@ describe("<Timeline />", () => {
       const wrapper = render(<Timeline {...props} />);
 
       expect(
-        wrapper.container.getElementsByClassName("rt-layout rt-is-open").length
+        wrapper.container.querySelectorAll(".rt-layout.rt-is-open").length
       ).toBe(1);
     });
   });

@@ -19,7 +19,7 @@ describe("<Timebar />", () => {
     const wrapper = render(<Timebar {...props} />);
 
     expect(
-      wrapper.container.getElementsByClassName("rt-timebar__row").length
+      wrapper.container.querySelectorAll(".rt-timebar__row").length
     ).toBe(2);
   });
 });

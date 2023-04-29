@@ -63,7 +63,7 @@ describe("<Track />", () => {
     const wrapper = render(<Track {...props} />);
 
     expect(
-      wrapper.container.getElementsByClassName("rt-track__element").length
+      wrapper.container.querySelectorAll(".rt-track__element").length
     ).toBe(1);
   });
 
@@ -80,7 +80,7 @@ describe("<Track />", () => {
     });
     const wrapper = render(<Track {...props} />);
 
-    expect(wrapper.container.getElementsByClassName("rt-tracks").length).toBe(
+    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(
       1
     );
   });
@@ -99,7 +99,7 @@ describe("<Track />", () => {
     });
     const wrapper = render(<Track {...props} />);
 
-    expect(wrapper.container.getElementsByClassName("rt-tracks").length).toBe(
+    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(
       1
     );
   });
@@ -117,7 +117,7 @@ describe("<Track />", () => {
     });
     const wrapper = render(<Track {...props} />);
 
-    expect(wrapper.container.getElementsByClassName("rt-tracks").length).toBe(
+    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(
       0
     );
   });
@@ -129,7 +129,7 @@ describe("<Track />", () => {
     });
     const wrapper = render(<Track {...props} />);
 
-    expect(wrapper.container.getElementsByClassName("rt-tracks").length).toBe(
+    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(
       0
     );
   });

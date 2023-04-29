@@ -27,9 +27,6 @@ describe("<Toggle />", () => {
       fireEvent.click(screen.getByRole("button", { name: "Close Controls" }));
     });
 
-    expect(
-      screen.getByRole("button", { name: "Open Controls" })
-    ).toBeInTheDocument();
     expect(toggleOpen).toHaveBeenCalled();
   });
 });

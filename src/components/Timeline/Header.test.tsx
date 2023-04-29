@@ -59,7 +59,7 @@ describe("<Header />", () => {
     const props = createProps();
     const wrapper = render(<Header {...props} />);
 
-    expect(wrapper.container.getElementsByClassName("rt-timebar").length).toBe(
+    expect(wrapper.container.querySelectorAll(".rt-timebar").length).toBe(
       1
     );
   });
@@ -115,7 +115,7 @@ describe("<Header />", () => {
       const wrapper = render(<Header {...props} />);
 
       expect(
-        wrapper.container.getElementsByClassName("rt-timeline__header")
+        wrapper.container.querySelectorAll(".rt-timeline__header")
       ).toHaveClass("is-sticky");
     });
 
@@ -125,7 +125,7 @@ describe("<Header />", () => {
       const wrapper = render(<Header {...props} />);
 
       expect(
-        wrapper.container.getElementsByClassName("rt-timeline__header")
+        wrapper.container.querySelectorAll(".rt-timeline__header")
       ).not.toHaveClass("is-sticky");
     });
 
@@ -140,7 +140,7 @@ describe("<Header />", () => {
 
       act(() => {
         fireEvent.scroll(
-          wrapper.container.getElementsByClassName("rt-timeline__header")[0]
+          wrapper.container.querySelectorAll(".rt-timeline__header")[0]
         );
       });
 

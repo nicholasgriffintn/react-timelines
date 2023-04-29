@@ -27,7 +27,7 @@ describe("<Element />", () => {
     const wrapper = render(<Element {...defaultProps} />);
 
     expect(
-      wrapper.container.getElementsByClassName("rt-element")[0]
+      wrapper.container.querySelectorAll(".rt-element")[0]
     ).toBeInTheDocument();
   });
 

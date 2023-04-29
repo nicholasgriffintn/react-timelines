@@ -78,13 +78,13 @@ describe("<Timeline />", () => {
     const wrapper = render(<Timeline {...props} />);
 
     expect(
-      wrapper.container.getElementsByClassName("rt-marker--now").length
+      wrapper.container.querySelectorAll(".rt-marker--now").length
     ).toBe(1);
     expect(
-      wrapper.container.getElementsByClassName("rt-timeline__header").length
+      wrapper.container.querySelectorAll(".rt-timeline__header").length
     ).toBe(1);
     expect(
-      wrapper.container.getElementsByClassName("rt-timeline__body").length
+      wrapper.container.querySelectorAll(".rt-timeline__body").length
     ).toBe(1);
   });
 
@@ -94,7 +94,7 @@ describe("<Timeline />", () => {
     const expected = defaultTimebar[0].cells;
 
     expect(
-      wrapper.container.getElementsByClassName("rt-timeline__body")[0]
+      wrapper.container.querySelectorAll(".rt-timeline__body")[0]
     ).toHaveAttribute("grid", expected);
   });
 
@@ -104,7 +104,7 @@ describe("<Timeline />", () => {
       const wrapper = render(<Timeline {...props} />);
 
       expect(
-        wrapper.container.getElementsByClassName("rt-marker--pointer").length
+        wrapper.container.querySelectorAll(".rt-marker--pointer").length
       ).toBe(0);
     });
 
@@ -117,7 +117,7 @@ describe("<Timeline />", () => {
       });
 
       expect(
-        wrapper.container.getElementsByClassName("rt-marker--pointer").length
+        wrapper.container.querySelectorAll(".rt-marker--pointer").length
       ).toBe(1);
     });
   });

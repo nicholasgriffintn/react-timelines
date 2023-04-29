@@ -18,7 +18,7 @@ describe("<TrackKey />", () => {
       };
       const wrapper = render(<TrackKey track={track} />);
       const component =
-        wrapper.container.getElementsByClassName("side-component")[0];
+        wrapper.container.querySelectorAll(".side-component")[0];
       expect(component).toHaveTextContent("Component");
     });
   });
@@ -44,7 +44,7 @@ describe("<TrackKey />", () => {
       const wrapper = render(<TrackKey {...props} />);
 
       expect(
-        wrapper.container.getElementsByClassName("rt-track-key").length
+        wrapper.container.querySelectorAll(".rt-track-key").length
       ).oBe(1);
     });
 
@@ -68,7 +68,7 @@ describe("<TrackKey />", () => {
       const wrapper = render(<TrackKey {...props} />);
 
       expect(
-        wrapper.container.getElementsByClassName("rt-track-key").length
+        wrapper.container.querySelectorAll(".rt-track-key").length
       ).oBe(0);
     });
 
@@ -86,7 +86,7 @@ describe("<TrackKey />", () => {
       const wrapper = render(<TrackKey {...props} />);
 
       expect(
-        wrapper.container.getElementsByClassName("rt-track-key").length
+        wrapper.container.querySelectorAll(".rt-track-key").length
       ).oBe(0);
     });
 
@@ -104,7 +104,7 @@ describe("<TrackKey />", () => {
       const wrapper = render(<TrackKey {...props} />);
 
       expect(
-        wrapper.container.getElementsByClassName("rt-track-key").length
+        wrapper.container.querySelectorAll(".rt-track-key").length
       ).oBe(0);
     });
   });
