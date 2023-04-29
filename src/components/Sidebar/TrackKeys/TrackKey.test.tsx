@@ -43,9 +43,9 @@ describe("<TrackKey />", () => {
       };
       const wrapper = render(<TrackKey {...props} />);
 
-      expect(
-        wrapper.container.querySelectorAll(".rt-track-key").length
-      ).toBe(1);
+      expect(wrapper.container.querySelectorAll(".rt-track-key").length).toBe(
+        1
+      );
     });
 
     it('does not render when "isOpen" is falsy', () => {

@@ -23,8 +23,6 @@ describe("<TrackKeys />", () => {
     };
     const wrapper = render(<TrackKeys {...props} />);
 
-    expect(wrapper.container.querySelectorAll(".rt-track-key").length).toBe(
-      2
-    );
+    expect(wrapper.container.querySelectorAll(".rt-track-key").length).toBe(2);
   });
 });

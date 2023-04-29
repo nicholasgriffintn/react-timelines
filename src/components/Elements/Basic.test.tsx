@@ -60,12 +60,12 @@ describe("<Basic />", () => {
       const props = { ...defaultProps, classes: ["foo", "bar"] };
       const wrapper = render(<Basic {...props} />);
 
-      expect(
-        wrapper.container.querySelectorAll(".rt-element")[0]
-      ).toHaveClass("foo");
-      expect(
-        wrapper.container.querySelectorAll(".rt-element")[0]
-      ).toHaveClass("bar");
+      expect(wrapper.container.querySelectorAll(".rt-element")[0]).toHaveClass(
+        "foo"
+      );
+      expect(wrapper.container.querySelectorAll(".rt-element")[0]).toHaveClass(
+        "bar"
+      );
     });
   });
 });

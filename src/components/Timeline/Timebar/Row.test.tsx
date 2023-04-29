@@ -30,8 +30,8 @@ describe("<Row />", () => {
     };
     const wrapper = render(<Row {...props} />);
 
-    expect(
-      wrapper.container.querySelectorAll(".rt-timebar__cell").length
-    ).toBe(2);
+    expect(wrapper.container.querySelectorAll(".rt-timebar__cell").length).toBe(
+      2
+    );
   });
 });

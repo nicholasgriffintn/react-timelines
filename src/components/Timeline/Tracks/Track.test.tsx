@@ -80,9 +80,7 @@ describe("<Track />", () => {
     });
     const wrapper = render(<Track {...props} />);
 
-    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(
-      1
-    );
+    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(1);
   });
 
   it("renders <Tracks /> if is open", () => {
@@ -99,9 +97,7 @@ describe("<Track />", () => {
     });
     const wrapper = render(<Track {...props} />);
 
-    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(
-      1
-    );
+    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(1);
   });
 
   it("does not render <Tracks /> is is not open", () => {
@@ -117,9 +113,7 @@ describe("<Track />", () => {
     });
     const wrapper = render(<Track {...props} />);
 
-    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(
-      0
-    );
+    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(0);
   });
 
   it("does not render <Tracks /> if there are no tracks", () => {
@@ -129,8 +123,6 @@ describe("<Track />", () => {
     });
     const wrapper = render(<Track {...props} />);
 
-    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(
-      0
-    );
+    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(0);
   });
 });

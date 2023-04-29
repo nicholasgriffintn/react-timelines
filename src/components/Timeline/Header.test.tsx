@@ -59,9 +59,7 @@ describe("<Header />", () => {
     const props = createProps();
     const wrapper = render(<Header {...props} />);
 
-    expect(wrapper.container.querySelectorAll(".rt-timebar").length).toBe(
-      1
-    );
+    expect(wrapper.container.querySelectorAll(".rt-timebar").length).toBe(1);
   });
 
   it('calls "onMove" on mouse move event', () => {

@@ -59,30 +59,26 @@ describe("<Layout />", () => {
   it("renders <Sidebar /> and <Timeline />", () => {
     const props = createProps();
     const wrapper = render(<Layout {...props} />);
- 
-    expect(wrapper.container.querySelectorAll(".rt-sidebar").length).toBe(
-      1
-    ); 
-    expect(wrapper.container.querySelectorAll(".rt-timeline").length).toBe(
-      1
-    );
+
+    expect(wrapper.container.querySelectorAll(".rt-sidebar").length).toBe(1);
+    expect(wrapper.container.querySelectorAll(".rt-timeline").length).toBe(1);
   });
 
   it("renders <Sidebar /> in an open state", () => {
     const props = createProps({ isOpen: true });
     const wrapper = render(<Layout {...props} />);
 
-    expect(
-      wrapper.container.querySelectorAll(".rt-layout")[0]
-    ).toHaveClass("rt-layout rt-is-open");
+    expect(wrapper.container.querySelectorAll(".rt-layout")[0]).toHaveClass(
+      "rt-layout rt-is-open"
+    );
   });
 
   it("renders <Sidebar /> in a closed state", () => {
     const props = createProps({ isOpen: false });
     const wrapper = render(<Layout {...props} />);
 
-    expect(
-      wrapper.container.querySelectorAll(".rt-layout")[0]
-    ).not.toHaveClass("rt-layout is-open");
+    expect(wrapper.container.querySelectorAll(".rt-layout")[0]).not.toHaveClass(
+      "rt-layout is-open"
+    );
   });
 });

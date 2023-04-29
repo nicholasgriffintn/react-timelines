@@ -34,8 +34,14 @@ describe("<Grid />", () => {
   it("renders grid cells, the styling of each repesenting the start and end dates in the grid prop", () => {
     const wrapper = render(<Grid time={time} grid={grid} />);
 
-    expect(wrapper.container.querySelectorAll(".rt-grid__cell")[0]).toHaveStyle({ left: "0px", width: "50px" });
-    expect(wrapper.container.querySelectorAll(".rt-grid__cell")[1]).toHaveStyle({ left: "50px", width: "50px" });
-    expect(wrapper.container.querySelectorAll(".rt-grid__cell")[2]).toHaveStyle({ left: "100px", width: "50px" });
+    expect(wrapper.container.querySelectorAll(".rt-grid__cell")[0]).toHaveStyle(
+      { left: "0px", width: "50px" }
+    );
+    expect(wrapper.container.querySelectorAll(".rt-grid__cell")[1]).toHaveStyle(
+      { left: "50px", width: "50px" }
+    );
+    expect(wrapper.container.querySelectorAll(".rt-grid__cell")[2]).toHaveStyle(
+      { left: "100px", width: "50px" }
+    );
   });
 });

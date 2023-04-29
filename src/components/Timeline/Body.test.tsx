@@ -20,9 +20,7 @@ describe("<Body />", () => {
   it("renders <Tracks />", () => {
     const wrapper = render(<Body {...defaultProps} />);
 
-    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(
-      1
-    );
+    expect(wrapper.container.querySelectorAll(".rt-tracks").length).toBe(1);
   });
 
   it("renders <Grid /> if grid prop exists", () => {

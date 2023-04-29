@@ -18,8 +18,8 @@ describe("<Timebar />", () => {
     };
     const wrapper = render(<Timebar {...props} />);
 
-    expect(
-      wrapper.container.querySelectorAll(".rt-timebar__row").length
-    ).toBe(2);
+    expect(wrapper.container.querySelectorAll(".rt-timebar__row").length).toBe(
+      2
+    );
   });
 });

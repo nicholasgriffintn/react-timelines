@@ -47,18 +47,14 @@ describe("<Timeline />", () => {
       const props = createProps();
       const wrapper = render(<Timeline {...props} />);
 
-      expect(
-        wrapper.container.querySelectorAll(".rt-controls").length
-      ).toBe(1);
+      expect(wrapper.container.querySelectorAll(".rt-controls").length).toBe(1);
     });
 
     it("renders <Layout />", () => {
       const props = createProps();
       const wrapper = render(<Timeline {...props} />);
 
-      expect(wrapper.container.querySelectorAll(".rt-layout").length).toBe(
-        1
-      );
+      expect(wrapper.container.querySelectorAll(".rt-layout").length).toBe(1);
     });
 
     it("renders the sidebar open by default", () => {

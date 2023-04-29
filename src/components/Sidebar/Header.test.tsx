@@ -35,7 +35,9 @@ describe("<Header />", () => {
     const props = { ...defaultProps, sticky };
     const wrapper = render(<Header {...props} />);
 
-    expect(wrapper.container.querySelector('.rt-sidebar__header')).toHaveStyle("padding-top: 100px");
+    expect(wrapper.container.querySelector(".rt-sidebar__header")).toHaveStyle(
+      "padding-top: 100px"
+    );
   });
 
   it("does not reserve the space taken up by the header when it is static", () => {
@@ -46,7 +48,9 @@ describe("<Header />", () => {
     };
     const props = { ...defaultProps, sticky };
     const wrapper = render(<Header {...props} />);
-    expect(wrapper.container.querySelector('.rt-sidebar__header')).not.toHaveStyle("padding-top: 100px");
+    expect(
+      wrapper.container.querySelector(".rt-sidebar__header")
+    ).not.toHaveStyle("padding-top: 100px");
   });
 
   it("becomes sticky when it receives a sticky prop", () => {
@@ -58,12 +62,12 @@ describe("<Header />", () => {
     const props = { ...defaultProps, sticky };
     const wrapper = render(<Header {...props} />);
 
-    expect(
-      wrapper.container.querySelector('.rt-sidebar__header')
-    ).toHaveClass("rt-is-sticky");
-    expect(
-      wrapper.container.querySelector('.rt-sidebar__header')
-    ).toHaveStyle("width: 200px");
+    expect(wrapper.container.querySelector(".rt-sidebar__header")).toHaveClass(
+      "rt-is-sticky"
+    );
+    expect(wrapper.container.querySelector(".rt-sidebar__header")).toHaveStyle(
+      "width: 200px"
+    );
   });
 
   it("becomes static when it receives a falsy sticky prop", () => {
@@ -76,10 +80,10 @@ describe("<Header />", () => {
     const wrapper = render(<Header {...props} />);
 
     expect(
-      wrapper.container.querySelector('.rt-sidebar__header')
+      wrapper.container.querySelector(".rt-sidebar__header")
     ).not.toHaveClass("rt-is-sticky");
     expect(
-      wrapper.container.querySelector('.rt-sidebar__header')
+      wrapper.container.querySelector(".rt-sidebar__header")
     ).not.toHaveStyle("width: 200px");
   });
 });

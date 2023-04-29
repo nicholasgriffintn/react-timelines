@@ -25,8 +25,8 @@ describe("<NowMarker />", () => {
     });
     const wrapper = render(<NowMarker {...props} />);
 
-    expect(
-      wrapper.container.querySelectorAll(".rt-marker")[0]
-    ).toHaveStyle("left: 366px");
+    expect(wrapper.container.querySelectorAll(".rt-marker")[0]).toHaveStyle(
+      "left: 366px"
+    );
   });
 });

@@ -20,8 +20,8 @@ describe("<PointerMarker />", () => {
   it("renders <Marker /> passing down horizontal position", () => {
     const wrapper = render(<PointerMarker {...props} />);
 
-    expect(
-      wrapper.container.querySelectorAll(".rt-marker")[0]
-    ).toHaveStyle("left: 1px");
+    expect(wrapper.container.querySelectorAll(".rt-marker")[0]).toHaveStyle(
+      "left: 1px"
+    );
   });
 });

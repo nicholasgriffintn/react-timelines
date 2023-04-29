@@ -107,7 +107,7 @@ describe("<Timeline />", () => {
       });
 
       expect(
-        wrapper.container.querySelector('.rt-marker--pointer')
+        wrapper.container.querySelector(".rt-marker--pointer")
       ).toBeInTheDocument();
     });
   });
