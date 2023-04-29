@@ -223,7 +223,7 @@ class Layout extends PureComponent<Props, State> {
           />
         </div>
         <div className="rt-layout__main">
-          <div className="rt-layout__timeline" ref={this.timeline} onScroll={isSticky ? this.handleScrollX : noop}>
+          <div className="rt-layout__timeline" tabIndex={0} ref={this.timeline} onScroll={isSticky ? this.handleScrollX : noop}>
             <Timeline
               now={now}
               time={time}
