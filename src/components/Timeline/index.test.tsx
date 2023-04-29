@@ -1,10 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { render, act, fireEvent } from '@testing-library/react'
 
 import Timeline from '.'
-import Header from './Header'
-import Body from './Body'
-import NowMarker from './Marker/NowMarker'
-import PointerMarker from './Marker/PointerMarker'
 import createTime from '@src/utils/time'
 
 import { StickySettings, TimebarEntry } from '@src/types'
@@ -71,86 +67,37 @@ describe('<Timeline />', () => {
   it('renders <NowMarker />, <Header /> and <Body />', () => {
     const props = createTimelineProps()
     const wrapper = render(<Timeline {...props} />)
-    expect(wrapper.find(NowMarker).exists()).toBe(true)
-    expect(wrapper.find(Header).exists()).toBe(true)
-    expect(wrapper.find(Body).exists()).toBe(true)
+
+    expect(wrapper.container.getElementsByClassName('rt-marker--now').length).toBe(1)
+    expect(wrapper.container.getElementsByClassName('rt-timeline__header').length).toBe(1)
+    expect(wrapper.container.getElementsByClassName('rt-timeline__body').length).toBe(1)
   })
 
   it('renders <Body /> passing in appropriate grid cells', () => {
     const props = createTimelineProps()
     const wrapper = render(<Timeline {...props} />)
     const expected = defaultTimebar[0].cells
-    expect(wrapper.find(Body).prop('grid')).toEqual(expected)
+
+    expect(wrapper.container.getElementsByClassName('rt-timeline__body')[0]).toHaveAttribute('grid', expected)
   })
 
   describe('markers', () => {
     it('does not render <PointerMarker /> when component mounts', () => {
       const props = createTimelineProps()
       const wrapper = render(<Timeline {...props} />)
-      expect(wrapper.find(PointerMarker).exists()).not.toBe(true)
+
+      expect(wrapper.container.getElementsByClassName('rt-marker--pointer').length).toBe(0)
     })
 
     it('renders <PointerMarker /> when component mounts', () => {
       const props = createTimelineProps()
       const wrapper = render(<Timeline {...props} />)
-      wrapper.setState({ pointerDate: new Date() })
-      expect(wrapper.find(PointerMarker).exists()).toBe(true)
+
+      act(() => {
+        fireEvent.mouseMove(wrapper.container)
+      })
+
+      expect(wrapper.container.getElementsByClassName('rt-marker--pointer').length).toBe(1)
     })
-
-    /* @todo: Resolve issues with test (or functionality) and re-enable test */
-    it.todo(
-      'does not render <NowMarker /> if "now" is "null"'
-      // () => {
-      //   const props = createTimelineProps({ now: undefined });
-      //   const wrapper = render(<Timeline {...props} />);
-      //   expect(wrapper.find(NowMarker).exists()).toBe(false);
-      // }
-    )
-
-    /* @todo: Fix types in here, and re-enable test */
-    it.todo(
-      'updates pointerDate when the mouse moves'
-      //  () => {
-      //   const event = 10;
-      //   const props = createTimelineProps();
-      //   const wrapper = render(<Timeline {...props} />);
-      //   expect(wrapper.state("pointerDate")).toBe(null);
-
-      //   getMouseX.mockImplementation((e) => e);
-      //   wrapper.find(Header).prop("onMove")(event);
-      //   expect(wrapper.state("pointerDate")).toEqual(new Date("2018-01-11"));
-      // }
-    )
-
-    /* @todo: Fix types in here, and re-enable test */
-    it.todo(
-      'makes the pointer visible and highlighted when the mouse enters'
-      // () => {
-      //   const props = createTimelineProps();
-      //   const wrapper = render(<Timeline {...props} />);
-      //   expect(wrapper.state("pointerVisible")).toBe(false);
-      //   expect(wrapper.state("pointerHighlighted")).toBe(false);
-
-      //   wrapper.find(Header).prop("onEnter")();
-      //   expect(wrapper.state("pointerVisible")).toBe(true);
-      //   expect(wrapper.state("pointerHighlighted")).toBe(true);
-      // }
-    )
-
-    /* @todo: Fix types in here, and re-enable test */
-    it.todo(
-      'removes the pointer highlight when the mouse leaves'
-      // () => {
-      //   const props = createTimelineProps();
-      //   const wrapper = render(<Timeline {...props} />);
-      //   expect(wrapper.state("pointerHighlighted")).toBe(false);
-
-      //   wrapper.find(Header).prop("onEnter")();
-      //   expect(wrapper.state("pointerHighlighted")).toBe(true);
-
-      //   wrapper.find(Header).prop("onLeave")();
-      //   expect(wrapper.state("pointerHighlighted")).toBe(false);
-      // }
-    )
   })
 })

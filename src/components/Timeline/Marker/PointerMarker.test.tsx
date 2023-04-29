@@ -20,17 +20,7 @@ describe('<PointerMarker />', () => {
 
   it('renders <Marker /> passing down horizontal position', () => {
     const wrapper = render(<PointerMarker {...props} />)
-    const marker = wrapper.find(Marker)
-    expect(marker.prop('x')).toBe(1)
-  })
 
-  /* @todo: fix possible timezone/utc display issues -- expecting 2 Jan, but receiving 1 Jan */
-  /* @todo: And -- the test seems mis-named -- it's not looking at text, it's looking at date... Sj*/
-  it.todo(
-    'renders "text"'
-    // () => {
-    //   const wrapper = render(<PointerMarker {...props} />);
-    //   expect(wrapper.find("strong").text()).toBe("2 Jan");
-    // }
-  )
+    expect(wrapper.container.getElementsByClassName('rt-marker')[0]).toHaveAttribute('x', 1)
+  })
 })

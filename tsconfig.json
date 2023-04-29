@@ -6,6 +6,7 @@
       "@src/*": ["src/*"]
     },
     "target": "es5",
+    "types": ["node", "jest"],
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,

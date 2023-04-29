@@ -15,41 +15,47 @@ describe('<Marker />', () => {
     const modifier = 'test-modifier'
     const props = createProps({ modifier })
     const wrapper = render(<Marker {...props} />)
-    expect(wrapper.prop('className')).toMatch(modifier)
+
+    expect(wrapper.container).toHaveClass(modifier)
   })
 
   it('is visible if "visible" is truthy', () => {
     const visible = true
     const props = createProps({ visible })
     const wrapper = render(<Marker {...props} />)
-    expect(wrapper.prop('className')).toMatch('is-visible')
+
+    expect(wrapper.container).toHaveClass('is-visible')
   })
 
   it('is invisible if "visible" is falsy', () => {
     const visible = false
     const props = createProps({ visible })
     const wrapper = render(<Marker {...props} />)
-    expect(wrapper.prop('className')).not.toMatch('is-visible')
+
+    expect(wrapper.container).not.toHaveClass('is-visible')
   })
 
   it('is highlighted if "highlighted" is truthy', () => {
     const highlighted = true
     const props = createProps({ highlighted })
     const wrapper = render(<Marker {...props} />)
-    expect(wrapper.prop('className')).toMatch('is-highlighted')
+
+    expect(wrapper.container).toHaveClass('is-highlighted')
   })
 
   it('is not highlighted if "highlighted" is falsy', () => {
     const highlighted = false
     const props = createProps({ highlighted })
     const wrapper = render(<Marker {...props} />)
-    expect(wrapper.prop('className')).not.toMatch('is-highlighted')
+
+    expect(wrapper.container).not.toHaveClass('is-highlighted')
   })
 
   it('follows the horizontal mouse position', () => {
     const x = 100
     const props = createProps({ x })
     const wrapper = render(<Marker {...props} />)
-    expect(wrapper.prop('style')).toEqual({ left: '100px' })
+
+    expect(wrapper.container).toHaveStyle('left: 100px')
   })
 })

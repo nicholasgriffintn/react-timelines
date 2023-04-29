@@ -1,22 +1,29 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, act, fireEvent } from '@testing-library/react'
 
 import Toggle from '@src/components/Controls/Toggle'
 
 describe('<Toggle />', () => {
   it('displays "Close" when open', () => {
-    const wrapper = render(<Toggle toggleOpen={jest.fn()} isOpen />)
-    expect(wrapper.text()).toMatch('Close')
+    render(<Toggle toggleOpen={jest.fn()} isOpen />)
+
+    expect(screen.getByRole('button', { name: 'Close Controls' })).toBeInTheDocument()
   })
 
   it('displays "Open" when closed', () => {
-    const wrapper = render(<Toggle toggleOpen={jest.fn()} isOpen={false} />)
-    expect(wrapper.text()).toMatch('Open')
+    render(<Toggle toggleOpen={jest.fn()} isOpen={false} />)
+
+    expect(screen.getByRole('button', { name: 'Open Controls' })).toBeInTheDocument()
   })
 
   it('calls "toggleOpen()" when clicked', () => {
     const toggleOpen = jest.fn()
     const wrapper = render(<Toggle toggleOpen={toggleOpen} isOpen />)
-    wrapper.simulate('click')
+
+    act(() => {
+      fireEvent.click(screen.getByRole('button', { name: 'Close Controls' }))
+    })
+
+    expect(screen.getByRole('button', { name: 'Open Controls' })).toBeInTheDocument()
     expect(toggleOpen).toHaveBeenCalled()
   })
 })

@@ -1,7 +1,7 @@
-import { Cell, TimebarEntry } from "@src/types";
+import { Cell, TimebarEntry } from '@src/types'
 
 export default function getGrid(timebar: TimebarEntry[]): Cell[] {
-  const gridRow = timebar.find((row) => !!row.useAsGrid);
-  const gridCells = gridRow?.cells || [];
-  return gridCells;
+  const gridRow = timebar.find(row => !!row.useAsGrid)
+  const gridCells = gridRow?.cells || []
+  return gridCells
 }

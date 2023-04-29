@@ -20,9 +20,10 @@ describe('<Header />', () => {
       { id: '1', title: 'row-2' },
     ]
     const props = { ...defaultProps, timebar }
-    const wrapper = render(<Header {...props} />)
-    expect(wrapper.find('.rt-timebar-key').first().text()).toBe('row-1')
-    expect(wrapper.find('.rt-timebar-key').last().text()).toBe('row-2')
+    render(<Header {...props} />)
+
+    expect(screen.getByText('row-1')).toBeInTheDocument()
+    expect(screen.getByText('row-2')).toBeInTheDocument()
   })
 
   it('reserves the space taken up by the header when it is sticky', () => {
@@ -33,9 +34,8 @@ describe('<Header />', () => {
     }
     const props = { ...defaultProps, sticky }
     const wrapper = render(<Header {...props} />)
-    expect(wrapper.prop('style')).toEqual({
-      paddingTop: 100,
-    })
+
+    expect(wrapper.container).toHaveStyle('padding-top: 100')
   })
 
   it('does not reserve the space taken up by the header when it is static', () => {
@@ -46,7 +46,7 @@ describe('<Header />', () => {
     }
     const props = { ...defaultProps, sticky }
     const wrapper = render(<Header {...props} />)
-    expect(wrapper.prop('style')).toEqual({})
+    expect(wrapper.container).not.toHaveStyle('padding-top: 100')
   })
 
   it('becomes sticky when it receives a sticky prop', () => {
@@ -57,10 +57,9 @@ describe('<Header />', () => {
     }
     const props = { ...defaultProps, sticky }
     const wrapper = render(<Header {...props} />)
-    expect(wrapper.find('.rt-sidebar__header').hasClass('rt-is-sticky')).toBe(true)
-    expect(wrapper.find('.rt-sidebar__header').prop('style')).toEqual({
-      width: 200,
-    })
+
+    expect(wrapper.container.getElementsByClassName('rt-sidebar__header')[0]).toHaveClass('rt-is-sticky')
+    expect(wrapper.container.getElementsByClassName('rt-sidebar__header')[0]).toHaveStyle('width: 200')
   })
 
   it('becomes static when it receives a falsy sticky prop', () => {
@@ -71,7 +70,8 @@ describe('<Header />', () => {
     }
     const props = { ...defaultProps, sticky }
     const wrapper = render(<Header {...props} />)
-    expect(wrapper.find('.rt-sidebar__header').hasClass('rt-is-sticky')).toBe(false)
-    expect(wrapper.find('.rt-sidebar__header').prop('style')).toEqual({})
+
+    expect(wrapper.container.getElementsByClassName('rt-sidebar__header')[0]).not.toHaveClass('rt-is-sticky')
+    expect(wrapper.container.getElementsByClassName('rt-sidebar__header')[0]).not.toHaveStyle('width: 200')
   })
 })

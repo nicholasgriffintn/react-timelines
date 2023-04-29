@@ -1,7 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, act, fireEvent } from '@testing-library/react'
 
 import Controls from '@src/components/Controls'
-import Toggle from '@src/components/Controls/Toggle'
 
 const createProps = ({
   isOpen = undefined,
@@ -25,85 +24,100 @@ describe('<Controls />', () => {
   describe('Toggle', () => {
     it('render <Toggle />', () => {
       const props = createProps()
-      const wrapper = render(<Controls {...props} />)
-      expect(wrapper.find(Toggle).exists()).toBe(true)
+      render(<Controls {...props} />)
+
+      expect(screen.getByRole('button', { name: 'Close Controls' })).toBeInTheDocument()
     })
 
     it('do not render <Toggle /> if no "toggleOpen" prop', () => {
       const props = { ...createProps(), toggleOpen: undefined }
-      const wrapper = render(<Controls {...props} />)
-      expect(wrapper.find(Toggle).exists()).toBe(false)
+      render(<Controls {...props} />)
+
+      expect(screen.getByRole('button', { name: 'Close Controls' })).not.toBeInTheDocument()
+      expect(screen.getByRole('button', { name: 'Open Controls' })).not.toBeInTheDocument()
     })
   })
 
   describe('Zoom in button', () => {
-    const findButton = (node: ReactWrapper) => node.find('.rt-controls__button--zoom-in')
-
     it('not rendered if no "zoomIn" fn passed', () => {
       const props = { ...createProps(), zoomIn: undefined }
-      const wrapper = render(<Controls {...props} />)
-      expect(findButton(wrapper).exists()).toBe(false)
+      render(<Controls {...props} />)
+
+      expect(screen.getByRole('button', { name: 'Zoom In' })).not.toBeInTheDocument()
     })
 
     it('is disabled when "zoom" is equal to "zoomMax"', () => {
       const props = createProps({ zoom: 5, zoomMax: 5 })
-      const wrapper = render(<Controls {...props} />)
-      expect(findButton(wrapper).prop('disabled')).toBe(true)
+      render(<Controls {...props} />)
+
+      expect(screen.getByRole('button', { name: 'Zoom In' })).toBeDisabled()
     })
 
     it('is disabled when "zoom" is greater than "zoomMax"', () => {
       const props = createProps({ zoom: 6, zoomMax: 5 })
-      const wrapper = render(<Controls {...props} />)
-      expect(findButton(wrapper).prop('disabled')).toBe(true)
+      render(<Controls {...props} />)
+
+      expect(screen.getByRole('button', { name: 'Zoom In' })).toBeDisabled()
     })
 
     it('is not disabled when "zoom" is less than "zoomMax"', () => {
       const props = createProps({ zoom: 2, zoomMax: 5 })
-      const wrapper = render(<Controls {...props} />)
-      expect(findButton(wrapper).prop('disabled')).toBe(false)
+      render(<Controls {...props} />)
+
+      expect(screen.getByRole('button', { name: 'Zoom In' })).not.toBeDisabled()
     })
 
     it('calls "zoomIn() when clicked"', () => {
       const zoomIn = jest.fn()
       const props = createProps({ zoom: 2, zoomMax: 5, zoomIn })
-      const wrapper = render(<Controls {...props} />)
-      findButton(wrapper).simulate('click')
+      render(<Controls {...props} />)
+
+      act(() => {
+        fireEvent.click(screen.getByRole('button', { name: 'Zoom In' }))
+      })
+
       expect(zoomIn).toHaveBeenCalled()
     })
   })
 
   describe('Zoom out button', () => {
-    const findButton = (node: ReactWrapper) => node.find('.rt-controls__button--zoom-out')
-
     it('not rendered if no "zoomOut" fn passed', () => {
       const props = { ...createProps(), zoomOut: undefined }
-      const wrapper = render(<Controls {...props} />)
-      expect(findButton(wrapper).exists()).toBe(false)
+      render(<Controls {...props} />)
+
+      expect(screen.getByRole('button', { name: 'Zoom Out' })).not.toBeInTheDocument()
     })
 
     it('is disabled when "zoom" is equal to "zoomMin"', () => {
       const props = createProps({ zoom: 2, zoomMin: 2 })
-      const wrapper = render(<Controls {...props} />)
-      expect(findButton(wrapper).prop('disabled')).toBe(true)
+      render(<Controls {...props} />)
+
+      expect(screen.getByRole('button', { name: 'Zoom Out' })).toBeDisabled()
     })
 
     it('is disabled when "zoom" is less than "zoomMin"', () => {
       const props = createProps({ zoom: 1, zoomMin: 2 })
-      const wrapper = render(<Controls {...props} />)
-      expect(findButton(wrapper).prop('disabled')).toBe(true)
+      render(<Controls {...props} />)
+
+      expect(screen.getByRole('button', { name: 'Zoom Out' })).toBeDisabled()
     })
 
     it('is not disabled when "zoom" is greater than "zoomMin"', () => {
       const props = createProps({ zoom: 5, zoomMin: 2 })
-      const wrapper = render(<Controls {...props} />)
-      expect(findButton(wrapper).prop('disabled')).toBe(false)
+      render(<Controls {...props} />)
+
+      expect(screen.getByRole('button', { name: 'Zoom Out' })).not.toBeDisabled()
     })
 
     it('calls "zoomOut() when clicked"', () => {
       const zoomOut = jest.fn()
       const props = createProps({ zoom: 5, zoomMin: 2, zoomOut })
-      const wrapper = render(<Controls {...props} />)
-      findButton(wrapper).simulate('click')
+      render(<Controls {...props} />)
+
+      act(() => {
+        fireEvent.click(screen.getByRole('button', { name: 'Zoom Out' }))
+      })
+
       expect(zoomOut).toHaveBeenCalled()
     })
   })

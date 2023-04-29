@@ -1,11 +1,10 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import TrackKey from './TrackKey'
-import TrackKeys from '.'
 import { Track } from '@src/types'
 type TrackKeyProps = React.ComponentProps<typeof TrackKey>
 
-function getSideComponent(node: ShallowWrapper) {
+function getSideComponent(node) {
   return node.find('.side-component')
 }
 
@@ -47,7 +46,8 @@ describe('<TrackKey />', () => {
         toggleOpen: jest.fn(),
       }
       const wrapper = render(<TrackKey {...props} />)
-      expect(wrapper.find(TrackKeys).exists()).toBe(true)
+
+      expect(wrapper.container.getElementsByClassName('rt-track-key').length).oBe(1)
     })
 
     it('does not render when "isOpen" is falsy', () => {
@@ -68,7 +68,8 @@ describe('<TrackKey />', () => {
         toggleOpen: jest.fn(),
       }
       const wrapper = render(<TrackKey {...props} />)
-      expect(wrapper.find(TrackKeys).exists()).toBe(false)
+
+      expect(wrapper.container.getElementsByClassName('rt-track-key').length).oBe(0)
     })
 
     it('does not render when "tracks" is falsy', () => {
@@ -83,7 +84,8 @@ describe('<TrackKey />', () => {
         toggleOpen: jest.fn(),
       }
       const wrapper = render(<TrackKey {...props} />)
-      expect(wrapper.find(TrackKeys).exists()).toBe(false)
+
+      expect(wrapper.container.getElementsByClassName('rt-track-key').length).oBe(0)
     })
 
     it('does not render when "tracks" is an empty array', () => {
@@ -98,7 +100,8 @@ describe('<TrackKey />', () => {
         toggleOpen: jest.fn(),
       }
       const wrapper = render(<TrackKey {...props} />)
-      expect(wrapper.find(TrackKeys).exists()).toBe(false)
+
+      expect(wrapper.container.getElementsByClassName('rt-track-key').length).oBe(0)
     })
   })
 })

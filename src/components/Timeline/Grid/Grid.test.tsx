@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import Grid from './Grid'
 import createTime from '@src/utils/time'
@@ -32,7 +32,7 @@ const grid = [
 
 describe('<Grid />', () => {
   it('renders grid cells, the styling of each repesenting the start and end dates in the grid prop', () => {
-    const getItemStyle = (wrapper: ShallowWrapper, i: number) => wrapper.find('.rt-grid__cell').get(i).props.style
+    const getItemStyle = (wrapper, i: number) => wrapper.find('.rt-grid__cell').get(i).props.style
 
     const wrapper = render(<Grid time={time} grid={grid} />)
     expect(getItemStyle(wrapper, 0)).toEqual({ left: '0px', width: '50px' })

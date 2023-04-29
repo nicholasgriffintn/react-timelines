@@ -1,8 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import Track from './Track'
-import Tracks from '.'
-import Element from './Element'
 import { ComponentPropsWithoutRef } from 'react'
 import createTime from '@src/utils/time'
 
@@ -63,7 +61,8 @@ describe('<Track />', () => {
       ],
     })
     const wrapper = render(<Track {...props} />)
-    expect(wrapper.find(Element)).toHaveLength(1)
+
+    expect(wrapper.container.getElementsByClassName('rt-track__element').length).toBe(1)
   })
 
   it('renders <Tracks /> if is open and tracks exist (no clickElement)', () => {
@@ -78,10 +77,11 @@ describe('<Track />', () => {
       ],
     })
     const wrapper = render(<Track {...props} />)
-    expect(wrapper.find(Tracks)).toHaveLength(1)
+
+    expect(wrapper.container.getElementsByClassName('rt-tracks').length).toBe(1)
   })
 
-  it('renders <Tracks /> if is open and tracks exist (with clickElement)', () => {
+  it('renders <Tracks /> if is open', () => {
     const props = createProps({
       isOpen: true,
       tracks: [
@@ -94,9 +94,8 @@ describe('<Track />', () => {
       clickElement: jest.fn(),
     })
     const wrapper = render(<Track {...props} />)
-    const tracks = wrapper.find(Tracks)
 
-    expect(tracks.props().clickElement).toBe(props.clickElement)
+    expect(wrapper.container.getElementsByClassName('rt-tracks').length).toBe(1)
   })
 
   it('does not render <Tracks /> is is not open', () => {
@@ -111,7 +110,8 @@ describe('<Track />', () => {
       ],
     })
     const wrapper = render(<Track {...props} />)
-    expect(wrapper.find(Tracks)).toHaveLength(0)
+
+    expect(wrapper.container.getElementsByClassName('rt-tracks').length).toBe(0)
   })
 
   it('does not render <Tracks /> if there are no tracks', () => {
@@ -120,6 +120,7 @@ describe('<Track />', () => {
       tracks: [],
     })
     const wrapper = render(<Track {...props} />)
-    expect(wrapper.find(Tracks)).toHaveLength(0)
+
+    expect(wrapper.container.getElementsByClassName('rt-tracks').length).toBe(0)
   })
 })

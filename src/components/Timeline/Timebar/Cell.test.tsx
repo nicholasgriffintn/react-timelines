@@ -17,14 +17,14 @@ describe('<Cell />', () => {
 
   it('renders the "title"', () => {
     const wrapper = render(<Cell {...props} />)
-    expect(wrapper.text()).toBe('test')
+
+    expect(screen.getByText('test')).toBeInTheDocument()
   })
 
   it('renders with a calculated width and left position based on "start" and "end"', () => {
     const wrapper = render(<Cell {...props} />)
-    expect(wrapper.prop('style')).toEqual({
-      left: '366px',
-      width: '365px',
-    })
+
+    expect(wrapper.container).toHaveStyle('left: 366px')
+    expect(wrapper.container).toHaveStyle('width: 366px')
   })
 })

@@ -1,8 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import Sidebar from '.'
-import Header from './Header'
-import Body from './TrackKeys/Body'
 
 describe('<Sidebar />', () => {
   it('renders <Header /> and <Body />', () => {
@@ -18,7 +16,8 @@ describe('<Sidebar />', () => {
       toggleTrackOpen: jest.fn(),
     }
     const wrapper = render(<Sidebar {...props} />)
-    expect(wrapper.find(Header).exists()).toBe(true)
-    expect(wrapper.find(Body).exists()).toBe(true)
+
+    expect(wrapper.container.getElementsByClassName('rt-sidebar__header')[0]).toBeInTheDocument()
+    expect(wrapper.container.getElementsByClassName('rt-sidebar__body')[0]).toBeInTheDocument()
   })
 })

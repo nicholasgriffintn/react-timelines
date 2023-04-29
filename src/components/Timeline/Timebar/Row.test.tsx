@@ -30,6 +30,7 @@ describe('<Row />', () => {
       ],
     }
     const wrapper = render(<Row {...props} />)
-    expect(wrapper.find(Cell)).toHaveLength(2)
+
+    expect(wrapper.container.getElementsByClassName('rt-timebar__cell').length).toBe(2)
   })
 })

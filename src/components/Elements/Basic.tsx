@@ -1,41 +1,41 @@
-import { CSSProperties, FunctionComponent, ReactNode } from "react";
-import { Tooltip } from "react-tooltip";
-import { v4 as uuidv4 } from 'uuid';
+import { CSSProperties, FunctionComponent, ReactNode } from 'react'
+import { Tooltip } from 'react-tooltip'
+import { v4 as uuidv4 } from 'uuid'
 
-import "react-tooltip/dist/react-tooltip.css";
+import 'react-tooltip/dist/react-tooltip.css'
 
-import { getDayMonth } from "@src/utils/formatDate";
-import createClasses from "@src/utils/classes";
+import { getDayMonth } from '@src/utils/formatDate'
+import createClasses from '@src/utils/classes'
 
 interface BuildDataAttributesSettings {
-  [key: string]: string;
+  [key: string]: string
 }
 
 const buildDataAttributes = (attributes: BuildDataAttributesSettings = {}) => {
-  const value: {[key: string]: any} = {};
-  Object.keys(attributes).forEach((name) => {
-    value[`data-${name.toLowerCase()}`] = attributes[name];
-  });
-  return value;
-};
-
-interface Props {
-  id?: string;
-  classes?: string[];
-  dataSet: BuildDataAttributesSettings;
-  end: Date;
-  start: Date;
-  style?: CSSProperties;
-  title: string;
-  titleStyle?: CSSProperties;
-  tooltip?: ReactNode;
-  tooltipStyle?: CSSProperties;
-  tooltipFollowCursor?: boolean;
-  altId?: string;
-  continuing?: ReactNode;
+  const value: { [key: string]: any } = {}
+  Object.keys(attributes).forEach(name => {
+    value[`data-${name.toLowerCase()}`] = attributes[name]
+  })
+  return value
 }
 
-const Basic: FunctionComponent<Props> = (props) => {
+interface Props {
+  id?: string
+  classes?: string[]
+  dataSet: BuildDataAttributesSettings
+  end: Date
+  start: Date
+  style?: CSSProperties
+  title: string
+  titleStyle?: CSSProperties
+  tooltip?: ReactNode
+  tooltipStyle?: CSSProperties
+  tooltipFollowCursor?: boolean
+  altId?: string
+  continuing?: ReactNode
+}
+
+const Basic: FunctionComponent<Props> = props => {
   const {
     id,
     classes = [],
@@ -50,29 +50,31 @@ const Basic: FunctionComponent<Props> = (props) => {
     tooltipFollowCursor,
     altId,
     continuing,
-  } = props;
+  } = props
 
   const defaultTooltipStyle: CSSProperties = {
-    color: "white",
-    lineHeight: "1.3",
-    textAlign: "left",
-    padding: "10px",
-    background: "#4c4c4c",
-  };
+    color: 'white',
+    lineHeight: '1.3',
+    textAlign: 'left',
+    padding: '10px',
+    background: '#4c4c4c',
+  }
 
-  const tooltipId = `rt-tooltip-${altId ?? uuidv4()}`;
+  const tooltipId = `rt-tooltip-${altId ?? uuidv4()}`
 
   return (
     <div
       id={id}
       data-altid={altId}
-      className={createClasses("rt-element", classes)}
+      className={createClasses('rt-element', classes)}
       style={style}
       data-tooltip-id={tooltipId}
       {...buildDataAttributes(dataSet)}
     >
       <div className="rt-element__content" aria-hidden="true">
-        <span className="rt-element__title" style={titleStyle}>{title}</span>
+        <span className="rt-element__title" style={titleStyle}>
+          {title}
+        </span>
         {continuing || <></>}
       </div>
       {tooltip ? (
@@ -100,7 +102,7 @@ const Basic: FunctionComponent<Props> = (props) => {
         </Tooltip>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Basic;
+export default Basic

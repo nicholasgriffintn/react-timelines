@@ -1,7 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import TrackKeys from '.'
-import TrackKey from './TrackKey'
 
 type TrackKeysProps = React.ComponentProps<typeof TrackKeys>
 
@@ -23,6 +22,7 @@ describe('<TrackKeys />', () => {
       toggleOpen: jest.fn(),
     }
     const wrapper = render(<TrackKeys {...props} />)
-    expect(wrapper.find(TrackKey)).toHaveLength(2)
+
+    expect(wrapper.container.getElementsByClassName('rt-track-key').length).oBe(2)
   })
 })

@@ -1,41 +1,41 @@
-import { Component, MouseEventHandler } from "react";
+import { Component, MouseEventHandler } from 'react'
 
-import Controls from "@src/components/Controls";
-import Layout, { LayoutChangeHandler } from "@src/components/Layout";
-import { ClickTrackHandler } from "@src/components/Sidebar/TrackKeys/TrackKey";
-import { ClickElementHandler } from "@src/components/Timeline/Tracks/Element";
-import { ScaleSettings, TimebarEntry, Track } from "@src/types";
-import createTime from "@src/utils/time";
+import Controls from '@src/components/Controls'
+import Layout, { LayoutChangeHandler } from '@src/components/Layout'
+import { ClickTrackHandler } from '@src/components/Sidebar/TrackKeys/TrackKey'
+import { ClickElementHandler } from '@src/components/Timeline/Tracks/Element'
+import { ScaleSettings, TimebarEntry, Track } from '@src/types'
+import createTime from '@src/utils/time'
 
-const UNKNOWN_WIDTH = -1;
+const UNKNOWN_WIDTH = -1
 
 interface Props {
-  clickElement?: ClickElementHandler;
-  clickTrackButton?: ClickTrackHandler;
-  enableSticky?: boolean;
-  isOpen?: boolean;
-  now: Date;
-  scale: ScaleSettings;
-  scrollToNow?: boolean;
-  timebar: TimebarEntry[];
-  toggleOpen?: () => void;
-  toggleTrackOpen?: () => void;
-  tracks: Track[];
-  zoomIn?: MouseEventHandler<HTMLButtonElement>;
-  zoomOut?: MouseEventHandler<HTMLButtonElement>;
+  clickElement?: ClickElementHandler
+  clickTrackButton?: ClickTrackHandler
+  enableSticky?: boolean
+  isOpen?: boolean
+  now: Date
+  scale: ScaleSettings
+  scrollToNow?: boolean
+  timebar: TimebarEntry[]
+  toggleOpen?: () => void
+  toggleTrackOpen?: () => void
+  tracks: Track[]
+  zoomIn?: MouseEventHandler<HTMLButtonElement>
+  zoomOut?: MouseEventHandler<HTMLButtonElement>
 }
 
 interface State {
-  time: ReturnType<typeof createTime>;
-  timelineViewportWidth: number;
-  sidebarWidth: number;
+  time: ReturnType<typeof createTime>
+  timelineViewportWidth: number
+  sidebarWidth: number
 }
 
 class Timeline extends Component<Props, State> {
   constructor(props: Props) {
-    super(props);
-    const timelineViewportWidth = UNKNOWN_WIDTH;
-    const sidebarWidth = UNKNOWN_WIDTH;
+    super(props)
+    const timelineViewportWidth = UNKNOWN_WIDTH
+    const sidebarWidth = UNKNOWN_WIDTH
     this.state = {
       time: createTime({
         ...props.scale,
@@ -43,33 +43,30 @@ class Timeline extends Component<Props, State> {
       }),
       timelineViewportWidth,
       sidebarWidth,
-    };
+    }
   }
 
   // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps(nextProps: Props) {
-    const { scale } = this.props;
-    const { timelineViewportWidth } = this.state;
+    const { scale } = this.props
+    const { timelineViewportWidth } = this.state
 
     if (nextProps.scale !== scale) {
       const time = createTime({
         ...nextProps.scale,
         viewportWidth: timelineViewportWidth,
-      });
-      this.setState({ time });
+      })
+      this.setState({ time })
     }
   }
 
   handleLayoutChange: LayoutChangeHandler = (settings, cb) => {
-    const {
-      timelineViewportWidth = UNKNOWN_WIDTH,
-      sidebarWidth = UNKNOWN_WIDTH,
-    } = settings;
-    const { scale } = this.props;
+    const { timelineViewportWidth = UNKNOWN_WIDTH, sidebarWidth = UNKNOWN_WIDTH } = settings
+    const { scale } = this.props
     const time = createTime({
       ...scale,
       viewportWidth: timelineViewportWidth,
-    });
+    })
     this.setState(
       {
         time,
@@ -77,8 +74,8 @@ class Timeline extends Component<Props, State> {
         sidebarWidth,
       },
       cb
-    );
-  };
+    )
+  }
 
   render() {
     const {
@@ -93,11 +90,11 @@ class Timeline extends Component<Props, State> {
       toggleTrackOpen,
       enableSticky = false,
       scrollToNow,
-    } = this.props;
+    } = this.props
 
-    const { time, timelineViewportWidth, sidebarWidth } = this.state;
+    const { time, timelineViewportWidth, sidebarWidth } = this.state
 
-    const { clickElement, clickTrackButton } = this.props;
+    const { clickElement, clickTrackButton } = this.props
 
     return (
       <div className="rt">
@@ -126,8 +123,8 @@ class Timeline extends Component<Props, State> {
           clickTrackButton={clickTrackButton}
         />
       </div>
-    );
+    )
   }
 }
 
-export default Timeline;
+export default Timeline

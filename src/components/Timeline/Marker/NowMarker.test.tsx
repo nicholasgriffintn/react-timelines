@@ -25,18 +25,7 @@ describe('<NowMarker />', () => {
       }),
     })
     const wrapper = render(<NowMarker {...props} />)
-    expect(wrapper.find(Marker).prop('x')).toBe(366)
-  })
 
-  /* @todo: fix this test -- expecting 10 Apr, but receiving 9 Apr -- timezone issues? Maybe need to use UTC everywhere or use UTC in test rendering dom? */
-  it.todo(
-    'renders the formatted date for "now"'
-    // () => {
-    // const props = createProps({
-    //   now: new Date("2017-04-10"),
-    // });
-    // const wrapper = render(<NowMarker {...props} />);
-    // expect(wrapper.find("strong").text()).toBe("10 Apr");
-    // }
-  )
+    expect(wrapper.container.getElementsByClassName('rt-marker')[0]).toHaveAttribute('x', 366)
+  })
 })

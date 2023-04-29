@@ -1,21 +1,21 @@
-import type { MouseEventHandler, RefObject } from "react";
+import type { MouseEventHandler, RefObject } from 'react'
 
-import { createRef, PureComponent } from "react";
+import { createRef, PureComponent } from 'react'
 
-import { StickySettings, TimebarEntry, TimeSettings } from "@src/types";
+import { StickySettings, TimebarEntry, TimeSettings } from '@src/types'
 
-import Timebar from "./Timebar/Timebar";
+import Timebar from './Timebar/Timebar'
 
-const noop = () => {};
+const noop = () => {}
 
 interface Props {
-  onEnter: MouseEventHandler<HTMLDivElement>;
-  onLeave: MouseEventHandler<HTMLDivElement>;
-  onMove: MouseEventHandler<HTMLDivElement>;
-  sticky: StickySettings;
-  time: TimeSettings;
-  timebar: TimebarEntry[];
-  width: string;
+  onEnter: MouseEventHandler<HTMLDivElement>
+  onLeave: MouseEventHandler<HTMLDivElement>
+  onMove: MouseEventHandler<HTMLDivElement>
+  sticky: StickySettings
+  time: TimeSettings
+  timebar: TimebarEntry[]
+  width: string
 }
 
 class Header extends PureComponent<Props> {
@@ -89,4 +89,4 @@ class Header extends PureComponent<Props> {
   }
 }
 
-export default Header;
+export default Header

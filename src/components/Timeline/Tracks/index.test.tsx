@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import createTime from '@src/utils/time'
 
 import Tracks from '.'
-import Track from './Track'
 
 describe('<Tracks />', () => {
   it('renders <Track /> components', () => {
@@ -18,6 +17,7 @@ describe('<Tracks />', () => {
       ],
     }
     const wrapper = render(<Tracks {...props} />)
-    expect(wrapper.find(Track)).toHaveLength(2)
+
+    expect(wrapper.container.getElementsByClassName('tr-track').length).toBe(2)
   })
 })

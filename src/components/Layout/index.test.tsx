@@ -1,8 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import Layout from '.'
-import Sidebar from '@src/components/Sidebar/Sidebar'
-import Timeline from '@src/components/Timeline'
 import createTime from '@src/utils/time'
 
 import computedStyle from '@src/utils/computedStyle'
@@ -64,19 +62,22 @@ describe('<Layout />', () => {
   it('renders <Sidebar /> and <Timeline />', () => {
     const props = createProps()
     const wrapper = render(<Layout {...props} />)
-    expect(wrapper.find(Sidebar).exists()).toBe(true)
-    expect(wrapper.find(Timeline).exists()).toBe(true)
+
+    expect(wrapper.container.getElementsByClassName('rt-sidebar').length).toBe(1)
+    expect(wrapper.container.getElementsByClassName('rt-timeline').length).toBe(1)
   })
 
   it('renders <Sidebar /> in an open state', () => {
     const props = createProps({ isOpen: true })
     const wrapper = render(<Layout {...props} />)
-    expect(wrapper.find('.rt-layout').prop('className')).toMatch('is-open')
+
+    expect(wrapper.container.getElementsByClassName('rt-layout')[0]).toHaveClass('is-open')
   })
 
   it('renders <Sidebar /> in a closed state', () => {
     const props = createProps({ isOpen: false })
     const wrapper = render(<Layout {...props} />)
-    expect(wrapper.find('.rt-layout').prop('className')).not.toMatch('is-open')
+
+    expect(wrapper.container.getElementsByClassName('rt-layout')[0]).not.toHaveClass('is-open')
   })
 })

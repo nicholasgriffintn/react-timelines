@@ -1,17 +1,17 @@
-import createTime from "@src/utils/time";
-import PropTypes from "prop-types";
+import createTime from '@src/utils/time'
+import PropTypes from 'prop-types'
 
-import Marker from "./Marker";
-import { getDayMonth } from "@src/utils/formatDate";
+import Marker from './Marker'
+import { getDayMonth } from '@src/utils/formatDate'
 
 interface Props {
-  time: ReturnType<typeof createTime>;
-  visible: boolean;
-  now: Date;
+  time: ReturnType<typeof createTime>
+  visible: boolean
+  now: Date
 }
 
 export default function NowMarker(props: Props): JSX.Element {
-  const { now, time, visible } = props;
+  const { now, time, visible } = props
   return (
     <Marker modifier="now" x={time.toX(now)} visible={visible}>
       <div>
@@ -19,7 +19,7 @@ export default function NowMarker(props: Props): JSX.Element {
         <strong>{getDayMonth(now)}</strong>
       </div>
     </Marker>
-  );
+  )
 }
 
 NowMarker.propTypes = {
@@ -28,4 +28,4 @@ NowMarker.propTypes = {
   }).isRequired,
   visible: PropTypes.bool.isRequired,
   now: PropTypes.instanceOf(Date).isRequired,
-};
+}

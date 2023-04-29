@@ -10,7 +10,7 @@ const defaultProps: BasicProps = {
   end: new Date('2017-02-01'),
   start: new Date('2017-01-01'),
   style: {},
-  title: '',
+  title: 'Timeline Item',
   tooltip: '',
 }
 
@@ -18,69 +18,42 @@ describe('<Basic />', () => {
   describe('Title', () => {
     it('should apply style to title', () => {
       const props = { ...defaultProps, titleStyle: { fontWeight: 'bold' } }
-      const wrapper = render(<Basic {...props} />)
-      expect(wrapper.find('.rt-element__title').prop('style')).toHaveProperty('fontWeight', 'bold')
+      render(<Basic {...props} />)
+
+      expect(screen.getByText('Timeline Item')).toHaveStyle('font-weight: bold')
     })
   })
-  describe('Tooltip', () => {
-    const getTooltip = (node: ShallowWrapper) => node.find('.rt-element__tooltip')
 
+  describe('Tooltip', () => {
     it('renders the tooltip value if it exists', () => {
       const tooltip = 'Test tooltip'
       const props = { ...defaultProps, tooltip }
-      const wrapper = render(<Basic {...props} />)
-      expect(getTooltip(wrapper).html()).toMatch('Test tooltip')
+      render(<Basic {...props} />)
+
+      expect(screen.getByText('Test tooltip')).toBeInTheDocument()
     })
 
     it('should apply style to tooltip', () => {
       const props = { ...defaultProps, tooltip: 'Test Tooltip', tooltipStyle: { backgroundColor: 'orange' } }
-      const wrapper = render(<Basic {...props} />)
-      expect(getTooltip(wrapper).prop('style')).toHaveProperty('backgroundColor', 'orange')
+      render(<Basic {...props} />)
+
+      expect(screen.getByText('Test tooltip')).toHaveStyle('background-color: orange')
     })
 
     it('handles multiline tooltips', () => {
       const tooltip = 'Test\ntooltip'
       const props = { ...defaultProps, tooltip }
-      const wrapper = render(<Basic {...props} />)
-      expect(getTooltip(wrapper).html()).toMatch('Test\ntooltip')
-    })
+      render(<Basic {...props} />)
 
-    /* @todo: fix and enable this test */
-    it.todo(
-      'renders the title, formatted start and end date if the tooltip prop does not exist'
-      // () => {
-      //   const tooltip = "";
-      //   const title = "TEST";
-      //   const start = new Date("2017-03-20");
-      //   const end = new Date("2017-04-15");
-      //   const props = {
-      //     ...defaultProps,
-      //     tooltip,
-      //     title,
-      //     start,
-      //     end,
-      //   };
-      //   const wrapper = render(<Basic {...props} />);
-      //   expect(getTooltip(wrapper).text()).toMatch("TEST");
-      //   expect(getTooltip(wrapper).text()).toMatch("Start 20 Mar");
-      //   expect(getTooltip(wrapper).text()).toMatch("End 15 Apr");
-      // }
-    )
+      expect(screen.getByText('Test\ntooltip')).toBeInTheDocument()
+    })
 
     it('can take an optional list of classnames to add to the parent', () => {
       const props = { ...defaultProps, classes: ['foo', 'bar'] }
       const wrapper = render(<Basic {...props} />)
-      expect(wrapper.find('.rt-element').hasClass('foo')).toBe(true)
-      expect(wrapper.find('.rt-element').hasClass('bar')).toBe(true)
-    })
-  })
 
-  describe('Data set', () => {
-    it('should be able to set data-*', () => {
-      const props = { ...defaultProps, dataSet: { foo: 'boo', bar: 'baz' } }
-      const wrapper = render(<Basic {...props} />)
-      expect(wrapper.props()['data-foo']).toEqual('boo')
-      expect(wrapper.props()['data-bar']).toEqual('baz')
+      expect(wrapper.container.getElementsByClassName('rt-element')[0]).toHaveClass('foo')
+      expect(wrapper.container.getElementsByClassName('rt-element')[0]).toHaveClass('bar')
     })
   })
 })

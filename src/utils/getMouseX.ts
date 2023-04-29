@@ -1,15 +1,15 @@
-import { MouseEvent } from "react";
+import { MouseEvent } from 'react'
 
 interface MinimalMouseEvent {
-  clientX: MouseEvent["clientX"];
+  clientX: MouseEvent['clientX']
   currentTarget: {
-    getBoundingClientRect: MouseEvent["currentTarget"]["getBoundingClientRect"];
-  };
+    getBoundingClientRect: MouseEvent['currentTarget']['getBoundingClientRect']
+  }
 }
 const getMouseX = (e: MinimalMouseEvent) => {
-  const target = e.currentTarget;
-  const bounds = target.getBoundingClientRect();
-  return e.clientX - bounds.left;
-};
+  const target = e.currentTarget
+  const bounds = target.getBoundingClientRect()
+  return e.clientX - bounds.left
+}
 
-export default getMouseX;
+export default getMouseX

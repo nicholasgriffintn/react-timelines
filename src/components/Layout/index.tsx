@@ -1,48 +1,45 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react'
 
-import Sidebar from "@src/components/Sidebar/Sidebar";
-import Timeline from "@src/components/Timeline";
-import { addListener, removeListener } from "@src/utils/events";
-import raf from "@src/utils/raf";
-import getNumericPropertyValue from "@src/utils/getNumericPropertyValue";
-import { TimebarEntry, TimeSettings, Track } from "@src/types";
-import { ClickTrackHandler } from "@src/components/Sidebar/TrackKeys/TrackKey";
-import { ClickElementHandler } from "@src/components/Timeline/Tracks/Element";
+import Sidebar from '@src/components/Sidebar/Sidebar'
+import Timeline from '@src/components/Timeline'
+import { addListener, removeListener } from '@src/utils/events'
+import raf from '@src/utils/raf'
+import getNumericPropertyValue from '@src/utils/getNumericPropertyValue'
+import { TimebarEntry, TimeSettings, Track } from '@src/types'
+import { ClickTrackHandler } from '@src/components/Sidebar/TrackKeys/TrackKey'
+import { ClickElementHandler } from '@src/components/Timeline/Tracks/Element'
 
-const noop = () => {};
+const noop = () => {}
 
 interface LayoutChangeHandlerSettings {
-  timelineViewportWidth?: number;
-  sidebarWidth?: number;
+  timelineViewportWidth?: number
+  sidebarWidth?: number
 }
 
-type LayoutChangeHandlerCallback = () => void;
+type LayoutChangeHandlerCallback = () => void
 
-export type LayoutChangeHandler = (
-  settings: LayoutChangeHandlerSettings,
-  callback: LayoutChangeHandlerCallback
-) => void;
+export type LayoutChangeHandler = (settings: LayoutChangeHandlerSettings, callback: LayoutChangeHandlerCallback) => void
 
 interface Props {
-  enableSticky: boolean;
-  isOpen?: boolean;
-  timebar: TimebarEntry[];
-  time: TimeSettings;
-  tracks: Track[];
-  now: Date;
-  toggleTrackOpen?: () => void;
-  scrollToNow?: boolean;
-  onLayoutChange: LayoutChangeHandler;
-  sidebarWidth?: number;
-  timelineViewportWidth?: number;
-  clickElement?: ClickElementHandler;
-  clickTrackButton?: ClickTrackHandler;
+  enableSticky: boolean
+  isOpen?: boolean
+  timebar: TimebarEntry[]
+  time: TimeSettings
+  tracks: Track[]
+  now: Date
+  toggleTrackOpen?: () => void
+  scrollToNow?: boolean
+  onLayoutChange: LayoutChangeHandler
+  sidebarWidth?: number
+  timelineViewportWidth?: number
+  clickElement?: ClickElementHandler
+  clickTrackButton?: ClickTrackHandler
 }
 
 interface State {
-  isSticky: boolean;
-  headerHeight: number;
-  scrollLeft: number;
+  isSticky: boolean
+  headerHeight: number
+  scrollLeft: number
 }
 
 class Layout extends PureComponent<Props, State> {
@@ -223,7 +220,12 @@ class Layout extends PureComponent<Props, State> {
           />
         </div>
         <div className="rt-layout__main">
-          <div className="rt-layout__timeline" tabIndex={0} ref={this.timeline} onScroll={isSticky ? this.handleScrollX : noop}>
+          <div
+            className="rt-layout__timeline"
+            tabIndex={0}
+            ref={this.timeline}
+            onScroll={isSticky ? this.handleScrollX : noop}
+          >
             <Timeline
               now={now}
               time={time}
@@ -246,4 +248,4 @@ class Layout extends PureComponent<Props, State> {
   }
 }
 
-export default Layout;
+export default Layout
