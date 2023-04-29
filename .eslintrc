@@ -1,14 +1,44 @@
 {
-  "parser": "@babel/eslint-parser",
-  "env": {
-    "browser": true,
-    "jest": true
-  },
-  "extends": ["react-app", "airbnb", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["import", "prettier", "@typescript-eslint"],
   "rules": {
-    "semi": ["error", "never"],
-    "react/require-default-props": "off",
-    "import/no-cycle": "off",
-    "react/jsx-props-no-spreading": "off"
-  }
+    "import/extensions": "off"
+  },
+  "env": { "jest": true },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "airbnb-typescript/base",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "rules": {
+        "import/extensions": "off",
+        "@typescript-eslint/quotes": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/indent": "off",
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": [
+              "./jest.config.ts",
+              "./jestSetup.ts",
+              "**/*.test.js",
+              "**/*.test.ts",
+              "**/*.test.jsx",
+              "**/*.test.tsx"
+            ]
+          }
+        ]
+      },
+      "parserOptions": {
+        "ecmaFeatures": {
+          "generators": false,
+          "objectLiteralDuplicateProperties": false,
+          "modules": true
+        },
+        "project": ["./tsconfig.eslint.json"]
+      }
+    }
+  ]
 }

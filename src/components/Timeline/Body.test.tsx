@@ -1,10 +1,10 @@
-import React from 'react'
-import { render } from '@testing-library/react'
+import React from "react";
+import { render } from "@testing-library/react";
 
-import Body from './Body'
-import createTime from '../../utils/time'
+import Body from "./Body";
+import createTime from "../../utils/time";
 
-type BodyProps = React.ComponentProps<typeof Body>
+type BodyProps = React.ComponentProps<typeof Body>;
 
 const defaultProps: BodyProps = {
   time: createTime({
@@ -14,28 +14,30 @@ const defaultProps: BodyProps = {
   }),
   grid: [],
   tracks: [],
-}
+};
 
-describe('<Body />', () => {
-  it('renders <Tracks />', () => {
-    const wrapper = render(<Body {...defaultProps} />)
+describe("<Body />", () => {
+  it("renders <Tracks />", () => {
+    const wrapper = render(<Body {...defaultProps} />);
 
-    expect(wrapper.container.getElementsByClassName('rt-tracks').length).toBe(1)
-  })
+    expect(wrapper.container.getElementsByClassName("rt-tracks").length).toBe(
+      1
+    );
+  });
 
-  it('renders <Grid /> if grid prop exists', () => {
-    const wrapper = render(<Body {...defaultProps} />)
+  it("renders <Grid /> if grid prop exists", () => {
+    const wrapper = render(<Body {...defaultProps} />);
 
-    expect(wrapper.container.getElementsByClassName('rt-grid').length).toBe(1)
-  })
+    expect(wrapper.container.getElementsByClassName("rt-grid").length).toBe(1);
+  });
 
-  it('does not render <Grid /> if grid prop does not exist', () => {
+  it("does not render <Grid /> if grid prop does not exist", () => {
     const props = {
       ...defaultProps,
       grid: undefined,
-    }
-    const wrapper = render(<Body {...props} />)
+    };
+    const wrapper = render(<Body {...props} />);
 
-    expect(wrapper.container.getElementsByClassName('rt-grid').length).toBe(0)
-  })
-})
+    expect(wrapper.container.getElementsByClassName("rt-grid").length).toBe(0);
+  });
+});

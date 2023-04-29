@@ -1,28 +1,30 @@
-import { render } from '@testing-library/react'
+import { render } from "@testing-library/react";
 
-import TrackKeys from '.'
+import TrackKeys from ".";
 
-type TrackKeysProps = React.ComponentProps<typeof TrackKeys>
+type TrackKeysProps = React.ComponentProps<typeof TrackKeys>;
 
-describe('<TrackKeys />', () => {
-  it('renders a <TrackKey /> for each track', () => {
+describe("<TrackKeys />", () => {
+  it("renders a <TrackKey /> for each track", () => {
     const props: TrackKeysProps = {
       tracks: [
         {
           elements: [],
-          id: '1',
-          title: 'Track 1',
+          id: "1",
+          title: "Track 1",
         },
         {
           elements: [],
-          id: '2',
-          title: 'Track 2',
+          id: "2",
+          title: "Track 2",
         },
       ],
       toggleOpen: jest.fn(),
-    }
-    const wrapper = render(<TrackKeys {...props} />)
+    };
+    const wrapper = render(<TrackKeys {...props} />);
 
-    expect(wrapper.container.getElementsByClassName('rt-track-key').length).oBe(2)
-  })
-})
+    expect(wrapper.container.getElementsByClassName("rt-track-key").length).oBe(
+      2
+    );
+  });
+});

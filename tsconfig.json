@@ -28,6 +28,6 @@
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
   },
-  "include": ["src/**/*", "demo/**/*", "jestSetup.ts"],
+  "include": ["src/**/*", "demo/**/*", "./jestSetup.ts"],
   "exclude": ["node_modules", "lib"]
 }
