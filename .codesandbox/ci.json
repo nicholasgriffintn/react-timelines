@@ -1,0 +1,5 @@
+{
+  "installCommand": "install",
+  "sandboxes": ["/demo"],
+  "node": "18"
+}
