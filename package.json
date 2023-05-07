@@ -1,6 +1,6 @@
 {
   "name": "react-timelines-updated",
-  "version": "2.0.0-development",
+  "version": "2.1.3",
   "description": "React Timelines: Updated",
   "homepage": "https://nicholasgriffintn.github.io/react-timelines/",
   "main": "lib/src/index.js",
