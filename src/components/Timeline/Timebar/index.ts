@@ -1,1 +1,1 @@
-export { default } from './Timebar'
+export { default } from "./Timebar";

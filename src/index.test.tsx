@@ -1,9 +1,9 @@
-import { render } from '@testing-library/react'
+import { render } from "@testing-library/react";
 
-import Timeline from '.'
+import Timeline from ".";
 
-const defaultStart = new Date('2010-01-01')
-const defaultEnd = new Date('2030-01-01')
+const defaultStart = new Date("2010-01-01");
+const defaultEnd = new Date("2030-01-01");
 
 const createScaleProps = ({
   start = defaultStart,
@@ -19,7 +19,7 @@ const createScaleProps = ({
   zoomMin,
   zoomMax,
   minWidth,
-})
+});
 
 const createProps = ({
   now = new Date(),
@@ -39,29 +39,31 @@ const createProps = ({
   toggleOpen,
   zoomIn,
   zoomOut,
-})
+});
 
-describe('<Timeline />', () => {
-  describe('Timeline', () => {
-    it('renders <Controls />', () => {
-      const props = createProps()
-      const wrapper = render(<Timeline {...props} />)
+describe("<Timeline />", () => {
+  describe("Timeline", () => {
+    it("renders <Controls />", () => {
+      const props = createProps();
+      const wrapper = render(<Timeline {...props} />);
 
-      expect(wrapper.container.getElementsByClassName('rt-controls').length).toBe(1)
-    })
+      expect(wrapper.container.querySelectorAll(".rt-controls").length).toBe(1);
+    });
 
-    it('renders <Layout />', () => {
-      const props = createProps()
-      const wrapper = render(<Timeline {...props} />)
+    it("renders <Layout />", () => {
+      const props = createProps();
+      const wrapper = render(<Timeline {...props} />);
 
-      expect(wrapper.container.getElementsByClassName('rt-layout').length).toBe(1)
-    })
+      expect(wrapper.container.querySelectorAll(".rt-layout").length).toBe(1);
+    });
 
-    it('renders the sidebar open by default', () => {
-      const props = createProps()
-      const wrapper = render(<Timeline {...props} />)
+    it("renders the sidebar open by default", () => {
+      const props = createProps();
+      const wrapper = render(<Timeline {...props} />);
 
-      expect(wrapper.container.getElementsByClassName('rt-layout rt-is-open').length).toBe(1)
-    })
-  })
-})
+      expect(
+        wrapper.container.querySelectorAll(".rt-layout.rt-is-open").length
+      ).toBe(1);
+    });
+  });
+});

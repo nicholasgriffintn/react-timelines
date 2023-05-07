@@ -1,34 +1,34 @@
-import { CSSProperties, FunctionComponent, ReactNode } from 'react'
-import { TimeSettings } from '../../../types'
+import { CSSProperties, FunctionComponent, ReactNode } from "react";
+import { TimeSettings } from "../../../types";
 
-import BasicElement from '../../../components/Elements/Basic'
-import { getMaxDate, getMinDate } from '../../../utils/date'
+import BasicElement from "../../../components/Elements/Basic";
+import { getMaxDate, getMinDate } from "../../../utils/date";
 interface Props {
-  id?: string
-  time?: TimeSettings
-  style?: CSSProperties
-  title?: string
-  titleStyle?: CSSProperties
-  start: Date
-  end: Date
-  classes?: string[]
-  dataSet?: Record<string, string>
-  tooltip?: ReactNode
-  tooltipStyle?: CSSProperties
-  tooltipFollowCursor?: boolean
-  altId?: string
-  clickElement?: (props: Props) => void
-  continuing?: ReactNode
+  id?: string;
+  time?: TimeSettings;
+  style?: CSSProperties;
+  title?: string;
+  titleStyle?: CSSProperties;
+  start: Date;
+  end: Date;
+  classes?: string[];
+  dataSet?: Record<string, string>;
+  tooltip?: ReactNode;
+  tooltipStyle?: CSSProperties;
+  tooltipFollowCursor?: boolean;
+  altId?: string;
+  clickElement?: (props: Props) => void;
+  continuing?: ReactNode;
 }
 
-export type ClickElementHandler = (props: Props) => void
+export type ClickElementHandler = (props: Props) => void;
 
-const Element: FunctionComponent<Props> = props => {
+const Element: FunctionComponent<Props> = (props) => {
   const {
     id,
     time,
     style,
-    title = '',
+    title = "",
     titleStyle = {},
     start,
     end,
@@ -40,24 +40,31 @@ const Element: FunctionComponent<Props> = props => {
     altId,
     clickElement,
     continuing,
-  } = props
+  } = props;
 
   const handleClick = () => {
     if (clickElement) {
-      clickElement(props)
+      clickElement(props);
     }
-  }
+  };
 
   const styleLeftAndWidth = time
-    ? time.toStyleLeftAndWidth(getMaxDate(start, time.start), getMinDate(end, time.end))
-    : {}
+    ? time.toStyleLeftAndWidth(
+        getMaxDate(start, time.start),
+        getMinDate(end, time.end)
+      )
+    : {};
 
   const elementStyle = {
     ...styleLeftAndWidth,
-    ...(clickElement ? { cursor: 'pointer' } : {}),
-  }
+    ...(clickElement ? { cursor: "pointer" } : {}),
+  };
   return (
-    <div className="rt-track__element" style={elementStyle} onClick={clickElement && handleClick}>
+    <div
+      className="rt-track__element"
+      style={elementStyle}
+      onClick={clickElement && handleClick}
+    >
       <BasicElement
         id={id}
         title={title}
@@ -74,7 +81,7 @@ const Element: FunctionComponent<Props> = props => {
         continuing={continuing}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Element
+export default Element;

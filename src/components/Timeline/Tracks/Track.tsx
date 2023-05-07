@@ -1,18 +1,22 @@
-import { FunctionComponent } from 'react'
-import Tracks from '.'
-import { TimeSettings, Element as ElementInterface, Track as TrackInterface } from '../../../types'
-import Element, { ClickElementHandler } from './Element'
+import { FunctionComponent } from "react";
+import Tracks from ".";
+import {
+  TimeSettings,
+  Element as ElementInterface,
+  Track as TrackInterface,
+} from "../../../types";
+import Element, { ClickElementHandler } from "./Element";
 
 interface Props {
-  time: TimeSettings
-  isOpen?: boolean
-  elements: ElementInterface[]
-  tracks: TrackInterface[]
-  clickElement?: ClickElementHandler
+  time: TimeSettings;
+  isOpen?: boolean;
+  elements: ElementInterface[];
+  tracks: TrackInterface[];
+  clickElement?: ClickElementHandler;
 }
 
-const Track: FunctionComponent<Props> = props => {
-  const { time, elements, isOpen, tracks, clickElement } = props
+const Track: FunctionComponent<Props> = (props) => {
+  const { time, elements, isOpen, tracks, clickElement } = props;
   return (
     <div className="tr-track">
       <div className="rt-track__elements">
@@ -35,9 +39,9 @@ const Track: FunctionComponent<Props> = props => {
               tooltipFollowCursor,
               tooltipStyle,
               continuing,
-            } = element
-            const selectedTime = elementTime || time
-            const selectedClickElement = elementClickElement || clickElement
+            } = element;
+            const selectedTime = elementTime || time;
+            const selectedClickElement = elementClickElement || clickElement;
             return (
               <Element
                 key={id}
@@ -57,12 +61,14 @@ const Track: FunctionComponent<Props> = props => {
                 altId={altId}
                 continuing={continuing}
               />
-            )
+            );
           })}
       </div>
-      {isOpen && tracks && tracks.length > 0 && <Tracks time={time} tracks={tracks} clickElement={clickElement} />}
+      {isOpen && tracks && tracks.length > 0 && (
+        <Tracks time={time} tracks={tracks} clickElement={clickElement} />
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Track
+export default Track;

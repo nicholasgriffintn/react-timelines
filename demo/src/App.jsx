@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import React, { Component } from "react";
+import { Component } from "react";
 import Timeline from "react-timelines-updated";
 
 import "react-timelines-updated/lib/css/style.css";

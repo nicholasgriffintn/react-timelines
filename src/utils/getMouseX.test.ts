@@ -1,7 +1,7 @@
-import getMouseX from './getMouseX'
+import getMouseX from "./getMouseX";
 
-describe('getMouseX', () => {
-  it('gets mouse X position for a given event by subtracting left from clientX', () => {
+describe("getMouseX", () => {
+  it("gets mouse X position for a given event by subtracting left from clientX", () => {
     const event = {
       clientX: 200,
       currentTarget: {
@@ -17,7 +17,7 @@ describe('getMouseX', () => {
           toJSON: () => {},
         }),
       },
-    }
-    expect(getMouseX(event)).toBe(190)
-  })
-})
+    };
+    expect(getMouseX(event)).toBe(190);
+  });
+});
