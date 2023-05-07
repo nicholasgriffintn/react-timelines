@@ -1,3 +1,3 @@
-import Controls from '../../components/Controls/Controls'
+import Controls from "../../components/Controls/Controls";
 
-export default Controls
+export default Controls;

@@ -1,13 +1,13 @@
-import { FunctionComponent, MouseEventHandler } from 'react'
+import { FunctionComponent, MouseEventHandler } from "react";
 
 interface Props {
-  zoom: number
-  zoomMin: number
-  zoomOut: MouseEventHandler<HTMLButtonElement>
+  zoom: number;
+  zoomMin: number;
+  zoomOut: MouseEventHandler<HTMLButtonElement>;
 }
 
-const ZoomOut: FunctionComponent<Props> = props => {
-  const { zoom, zoomMin, zoomOut } = props
+const ZoomOut: FunctionComponent<Props> = (props) => {
+  const { zoom, zoomMin, zoomOut } = props;
   return (
     <button
       className="rt-controls__button rt-controls__button--zoom-out"
@@ -20,11 +20,16 @@ const ZoomOut: FunctionComponent<Props> = props => {
         <g fillRule="evenodd">
           <path d="M12.5 22h24v6h-24z" />
           <path d="M25 48.5C12.02 48.5 1.5 37.98 1.5 25S12.02 1.5 25 1.5 48.5 12.02 48.5 25 37.98 48.5 25 48.5zm-.12-6.24c9.6 0 17.38-7.78 17.38-17.38 0-9.6-7.78-17.38-17.38-17.38-9.6 0-17.38 7.78-17.38 17.38 0 9.6 7.78 17.38 17.38 17.38z" />
-          <rect width="24" height="8" rx="4" transform="rotate(45 -22.312 67.766)" />
+          <rect
+            width="24"
+            height="8"
+            rx="4"
+            transform="rotate(45 -22.312 67.766)"
+          />
         </g>
       </svg>
     </button>
-  )
-}
+  );
+};
 
-export default ZoomOut
+export default ZoomOut;

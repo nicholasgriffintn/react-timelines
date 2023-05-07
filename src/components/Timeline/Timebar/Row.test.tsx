@@ -1,35 +1,37 @@
-import { render } from '@testing-library/react'
+import { render } from "@testing-library/react";
 
-import createTime from '../../../utils/time'
+import createTime from "../../../utils/time";
 
-import Row from './Row'
+import Row from "./Row";
 
-describe('<Row />', () => {
-  it('renders the <Cell /> components', () => {
+describe("<Row />", () => {
+  it("renders the <Cell /> components", () => {
     const props = {
       time: createTime({
-        start: new Date('2017-01-01'),
-        end: new Date('2018-01-01'),
+        start: new Date("2017-01-01"),
+        end: new Date("2018-01-01"),
         zoom: 1,
       }),
       style: {},
       cells: [
         {
-          title: 'test',
+          title: "test",
           start: new Date(),
           end: new Date(),
-          id: '1',
+          id: "1",
         },
         {
-          title: 'test',
+          title: "test",
           start: new Date(),
           end: new Date(),
-          id: '2',
+          id: "2",
         },
       ],
-    }
-    const wrapper = render(<Row {...props} />)
+    };
+    const wrapper = render(<Row {...props} />);
 
-    expect(wrapper.container.getElementsByClassName('rt-timebar__cell').length).toBe(2)
-  })
-})
+    expect(wrapper.container.querySelectorAll(".rt-timebar__cell").length).toBe(
+      2
+    );
+  });
+});

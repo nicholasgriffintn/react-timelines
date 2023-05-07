@@ -1,0 +1,5 @@
+{
+  "buildCommand": "build",
+  "sandboxes": ["/demo"],
+  "node": "18"
+}
