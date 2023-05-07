@@ -7,7 +7,7 @@ specifiers:
   '@vitejs/plugin-react': ^4.0.0
   react: 18.2.0
   react-dom: 18.2.0
-  react-timelines-updated: 2.1.2
+  react-timelines-updated: '*'
   vite: ^4.3.5
   vite-plugin-svgr: ^3.2.0
   vite-tsconfig-paths: ^4.2.0
