@@ -2,8 +2,6 @@ import { CSSProperties, FunctionComponent, ReactNode } from "react";
 import { Tooltip } from "react-tooltip";
 import { v4 as uuidv4 } from "uuid";
 
-import "react-tooltip/dist/react-tooltip.css";
-
 import { getDayMonth } from "../../utils/formatDate";
 import createClasses from "../../utils/classes";
 
